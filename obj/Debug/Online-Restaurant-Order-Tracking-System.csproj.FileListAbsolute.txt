@@ -1,0 +1,9 @@
+C:\Users\cemilenur\OneDrive\Masaüstü\Online-Restaurant-Order-Tracking-System\bin\Debug\Online-Restaurant-Order-Tracking-System.exe
+C:\Users\cemilenur\OneDrive\Masaüstü\Online-Restaurant-Order-Tracking-System\bin\Debug\Online-Restaurant-Order-Tracking-System.pdb
+C:\Users\cemilenur\OneDrive\Masaüstü\Online-Restaurant-Order-Tracking-System\obj\Debug\Online-Restaurant-Order-Tracking-System.csproj.AssemblyReference.cache
+C:\Users\cemilenur\OneDrive\Masaüstü\Online-Restaurant-Order-Tracking-System\obj\Debug\Online_Restaurant_Order_Tracking_System.Form1.resources
+C:\Users\cemilenur\OneDrive\Masaüstü\Online-Restaurant-Order-Tracking-System\obj\Debug\Online_Restaurant_Order_Tracking_System.Properties.Resources.resources
+C:\Users\cemilenur\OneDrive\Masaüstü\Online-Restaurant-Order-Tracking-System\obj\Debug\Online-Restaurant-Order-Tracking-System.csproj.GenerateResource.cache
+C:\Users\cemilenur\OneDrive\Masaüstü\Online-Restaurant-Order-Tracking-System\obj\Debug\Online-Restaurant-Order-Tracking-System.csproj.CoreCompileInputs.cache
+C:\Users\cemilenur\OneDrive\Masaüstü\Online-Restaurant-Order-Tracking-System\obj\Debug\Online-Restaurant-Order-Tracking-System.exe
+C:\Users\cemilenur\OneDrive\Masaüstü\Online-Restaurant-Order-Tracking-System\obj\Debug\Online-Restaurant-Order-Tracking-System.pdb
