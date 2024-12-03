@@ -30,12 +30,12 @@
         {
             this.button2 = new System.Windows.Forms.Button();
             this.register = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxUsername = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.labelGirisEkrani = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelPassword = new System.Windows.Forms.Label();
+            this.labelUsername = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,43 +68,45 @@
             this.register.TabIndex = 0;
             this.register.Text = "Giriş Yap";
             this.register.UseVisualStyleBackColor = false;
-            this.register.Click += new System.EventHandler(this.button1_Click);
+            this.register.Click += new System.EventHandler(this.register_Click);
             // 
-            // textBox1
+            // textBoxUsername
             // 
-            this.textBox1.Location = new System.Drawing.Point(211, 61);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(113, 22);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBoxUsername.Location = new System.Drawing.Point(211, 61);
+            this.textBoxUsername.Name = "textBoxUsername";
+            this.textBoxUsername.Size = new System.Drawing.Size(113, 22);
+            this.textBoxUsername.TabIndex = 2;
+            this.textBoxUsername.TextChanged += new System.EventHandler(this.textBoxUsername_TextChanged);
             // 
-            // textBox2
+            // textBoxPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(211, 105);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(113, 22);
-            this.textBox2.TabIndex = 3;
+            this.textBoxPassword.AcceptsReturn = true;
+            this.textBoxPassword.Location = new System.Drawing.Point(211, 105);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(113, 22);
+            this.textBoxPassword.TabIndex = 3;
+            this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
             // 
-            // label1
+            // labelGirisEkrani
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Font = new System.Drawing.Font("Mongolian Baiti", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(181, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(419, 79);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Giriş Ekranı";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.labelGirisEkrani.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelGirisEkrani.Font = new System.Drawing.Font("Mongolian Baiti", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGirisEkrani.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelGirisEkrani.Location = new System.Drawing.Point(181, 55);
+            this.labelGirisEkrani.Name = "labelGirisEkrani";
+            this.labelGirisEkrani.Size = new System.Drawing.Size(419, 79);
+            this.labelGirisEkrani.TabIndex = 4;
+            this.labelGirisEkrani.Text = "Giriş Ekranı";
+            this.labelGirisEkrani.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelGirisEkrani.Click += new System.EventHandler(this.labelGirisEkrani_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.labelPassword);
+            this.groupBox1.Controls.Add(this.labelUsername);
+            this.groupBox1.Controls.Add(this.textBoxPassword);
             this.groupBox1.Controls.Add(this.register);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textBoxUsername);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Location = new System.Drawing.Point(185, 147);
             this.groupBox1.Name = "groupBox1";
@@ -112,31 +114,32 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter_1);
+            
             // 
-            // label2
+            // labelPassword
             // 
-            this.label2.BackColor = System.Drawing.Color.Lavender;
-            this.label2.Font = new System.Drawing.Font("Mongolian Baiti", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(67, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 23);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Kullanıcı Adı:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelPassword.BackColor = System.Drawing.Color.Lavender;
+            this.labelPassword.Font = new System.Drawing.Font("Mongolian Baiti", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPassword.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.labelPassword.Location = new System.Drawing.Point(67, 105);
+            this.labelPassword.Name = "labelPassword";
+            this.labelPassword.Size = new System.Drawing.Size(103, 23);
+            this.labelPassword.TabIndex = 5;
+            this.labelPassword.Text = "Şifre:";
+            this.labelPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // labelUsername
             // 
-            this.label3.BackColor = System.Drawing.Color.Lavender;
-            this.label3.Font = new System.Drawing.Font("Mongolian Baiti", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label3.Location = new System.Drawing.Point(67, 105);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 23);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Şifre:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelUsername.BackColor = System.Drawing.Color.Lavender;
+            this.labelUsername.Font = new System.Drawing.Font("Mongolian Baiti", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUsername.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelUsername.Location = new System.Drawing.Point(67, 60);
+            this.labelUsername.Name = "labelUsername";
+            this.labelUsername.Size = new System.Drawing.Size(103, 23);
+            this.labelUsername.TabIndex = 4;
+            this.labelUsername.Text = "Kullanıcı Adı:";
+            this.labelUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelUsername.Click += new System.EventHandler(this.labelUsername_Click);
             // 
             // Form1
             // 
@@ -145,7 +148,7 @@
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(834, 450);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelGirisEkrani);
             this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Name = "Form1";
             this.Text = "LoginForm";
@@ -158,12 +161,12 @@
         #endregion
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button register;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxUsername;
+        private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.Label labelGirisEkrani;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelPassword;
+        private System.Windows.Forms.Label labelUsername;
     }
 }
 

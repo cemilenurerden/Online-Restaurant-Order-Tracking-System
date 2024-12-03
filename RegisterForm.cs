@@ -19,5 +19,20 @@ namespace Online_Restaurant_Order_Tracking_System
         {
 
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_kayit_ekrani_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonKayitOl_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
