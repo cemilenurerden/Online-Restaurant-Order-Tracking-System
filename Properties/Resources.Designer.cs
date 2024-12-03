@@ -103,6 +103,26 @@ namespace Online_Restaurant_Order_Tracking_System.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap c7993eb4364414034ce368088cffa6c0 {
+            get {
+                object obj = ResourceManager.GetObject("c7993eb4364414034ce368088cffa6c0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap c7993eb4364414034ce368088cffa6c01 {
+            get {
+                object obj = ResourceManager.GetObject("c7993eb4364414034ce368088cffa6c01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap Chocolate_Mousse_Cake {
             get {
                 object obj = ResourceManager.GetObject("Chocolate Mousse Cake", resourceCulture);

@@ -8,14 +8,14 @@ using System.Windows.Forms;
 
 namespace Online_Restaurant_Order_Tracking_System
 {
-    public partial class menu : Form
+    public partial class hosgeldinizBolumu : Form
     {
-        public menu()
+        public hosgeldinizBolumu()
         {
             InitializeComponent();
         }
 
-        private void labelİçecek_Click(object sender, EventArgs e)
+        private void buttonHosgeldin_Click(object sender, EventArgs e)
         {
 
         }

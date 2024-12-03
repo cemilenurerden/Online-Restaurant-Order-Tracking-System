@@ -79,5 +79,10 @@ namespace Online_Restaurant_Order_Tracking_System
         {
 
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
