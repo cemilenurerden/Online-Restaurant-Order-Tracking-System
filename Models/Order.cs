@@ -29,6 +29,7 @@ namespace Online_Restaurant_Order_Tracking_System.Models
     public enum PaymentMethod
     {
         CreditCard,
+        s,
         BankTransfer,
         CashOnDelivery
     }

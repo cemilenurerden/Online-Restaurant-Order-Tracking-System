@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Online_Restaurant_Order_Tracking_System.Repositories
 {
-    internal class OrderRepository
+    public class OrderRepository
     {
+
     }
 }

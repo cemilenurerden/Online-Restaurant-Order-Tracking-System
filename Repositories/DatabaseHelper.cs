@@ -11,7 +11,7 @@ namespace ProjeAdi.Repositories
         // MySQL bağlantı dizesi
         private static readonly string ConnectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
 
-        // Bağlantıyı açma ve döndürme
+        // Bağlantıyı açma ve döndürmexx
         public static MySqlConnection GetConnection()
         {
             try

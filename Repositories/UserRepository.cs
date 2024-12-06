@@ -36,7 +36,7 @@ namespace Online_Restaurant_Order_Tracking_System.Repositories
             return users;
         }
 
-        // Yeni kullanıcı eklemek
+        // Yeni kullanıcı eklemekskkk
         public bool AddUser(User user)
         {
             using (var conn = DatabaseHelper.GetConnection())
