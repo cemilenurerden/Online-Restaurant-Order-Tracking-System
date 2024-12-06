@@ -23,19 +23,32 @@ namespace Online_Restaurant_Order_Tracking_System
             InitializeComponent();
         }
 
-        private void buttonrrr_Click(object sender, EventArgs e)
+        private void register_Click(object sender, EventArgs e)
         {
+            // Kullanıcı adı ve şifre kontrolü için örnek değerler
+            string correctUsername = "admin";
+            string correctPassword = "1234";
 
-        }
+            // Kullanıcıdan alınan giriş bilgileri (textbox kontrol adlarınızı uygun şekilde değiştirin)
+            string enteredUsername = textBoxUsername.Text; // Kullanıcı adı giriş textbox'ı
+            string enteredPassword = textBoxPassword.Text; // Şifre giriş textbox'ı
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+            // Giriş bilgilerini doğrulama
+            if (enteredUsername == correctUsername && enteredPassword == correctPassword)
+            {
+                MessageBox.Show("Giriş başarılı!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Başarılı giriş sonrası yapılacak işlemler (örneğin yeni bir form açma)
 
+            }
+            else
+            {
+                MessageBox.Show("Kullanıcı adı veya şifre hatalı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -43,17 +56,31 @@ namespace Online_Restaurant_Order_Tracking_System
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void textBoxUsername_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void groupBox1_Enter_1(object sender, EventArgs e)
+        private void textBoxPassword_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void labelUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void labelPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelGirisEkrani_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }

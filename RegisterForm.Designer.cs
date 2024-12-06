@@ -28,47 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_kayit_ekrani = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonKayitOl = new System.Windows.Forms.Button();
+            this.textBoxTelephoneNumber = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.textBoxEmail = new System.Windows.Forms.TextBox();
+            this.textBoxUsername = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.labelTelephoneNumber = new System.Windows.Forms.Label();
+            this.labelPassword_register = new System.Windows.Forms.Label();
+            this.labelEmail = new System.Windows.Forms.Label();
+            this.labelLasName = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // label_kayit_ekrani
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Mongolian Baiti", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(212, 60);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(368, 72);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Kayıt Ekranı";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_kayit_ekrani.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label_kayit_ekrani.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label_kayit_ekrani.Font = new System.Drawing.Font("Mongolian Baiti", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_kayit_ekrani.Location = new System.Drawing.Point(212, 60);
+            this.label_kayit_ekrani.Name = "label_kayit_ekrani";
+            this.label_kayit_ekrani.Size = new System.Drawing.Size(368, 72);
+            this.label_kayit_ekrani.TabIndex = 0;
+            this.label_kayit_ekrani.Text = "Kayıt Ekranı";
+            this.label_kayit_ekrani.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_kayit_ekrani.Click += new System.EventHandler(this.label_kayit_ekrani_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.buttonKayitOl);
+            this.groupBox1.Controls.Add(this.textBoxTelephoneNumber);
+            this.groupBox1.Controls.Add(this.textBoxPassword);
+            this.groupBox1.Controls.Add(this.textBoxEmail);
+            this.groupBox1.Controls.Add(this.textBoxUsername);
+            this.groupBox1.Controls.Add(this.textBoxName);
+            this.groupBox1.Controls.Add(this.labelTelephoneNumber);
+            this.groupBox1.Controls.Add(this.labelPassword_register);
+            this.groupBox1.Controls.Add(this.labelEmail);
+            this.groupBox1.Controls.Add(this.labelLasName);
+            this.groupBox1.Controls.Add(this.labelName);
             this.groupBox1.Location = new System.Drawing.Point(216, 148);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(364, 277);
@@ -76,111 +77,113 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // label2
+            // buttonKayitOl
             // 
-            this.label2.BackColor = System.Drawing.Color.Lavender;
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Mongolian Baiti", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(32, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 20);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Ad:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonKayitOl.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.buttonKayitOl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonKayitOl.Font = new System.Drawing.Font("Mongolian Baiti", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonKayitOl.Location = new System.Drawing.Point(117, 227);
+            this.buttonKayitOl.Name = "buttonKayitOl";
+            this.buttonKayitOl.Size = new System.Drawing.Size(119, 34);
+            this.buttonKayitOl.TabIndex = 10;
+            this.buttonKayitOl.Text = "Kayıt Ol";
+            this.buttonKayitOl.UseVisualStyleBackColor = false;
+            this.buttonKayitOl.Click += new System.EventHandler(this.buttonKayitOl_Click);
             // 
-            // label3
+            // textBoxTelephoneNumber
             // 
-            this.label3.BackColor = System.Drawing.Color.Lavender;
-            this.label3.Font = new System.Drawing.Font("Mongolian Baiti", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(32, 74);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 21);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Soyad";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.textBoxTelephoneNumber.Location = new System.Drawing.Point(197, 184);
+            this.textBoxTelephoneNumber.Name = "textBoxTelephoneNumber";
+            this.textBoxTelephoneNumber.Size = new System.Drawing.Size(100, 22);
+            this.textBoxTelephoneNumber.TabIndex = 9;
             // 
-            // label4
+            // textBoxPassword
             // 
-            this.label4.BackColor = System.Drawing.Color.Lavender;
-            this.label4.Font = new System.Drawing.Font("Mongolian Baiti", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(32, 109);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 22);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "E posta:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.textBoxPassword.Location = new System.Drawing.Point(197, 145);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(100, 22);
+            this.textBoxPassword.TabIndex = 8;
             // 
-            // label5
+            // textBoxEmail
             // 
-            this.label5.BackColor = System.Drawing.Color.Lavender;
-            this.label5.Font = new System.Drawing.Font("Mongolian Baiti", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(32, 145);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 23);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Şifre:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.textBoxEmail.Location = new System.Drawing.Point(197, 109);
+            this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.Size = new System.Drawing.Size(100, 22);
+            this.textBoxEmail.TabIndex = 7;
             // 
-            // label6
+            // textBoxUsername
             // 
-            this.label6.BackColor = System.Drawing.Color.Lavender;
-            this.label6.Font = new System.Drawing.Font("Mongolian Baiti", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(32, 184);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(100, 22);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Telefon No:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.textBoxUsername.Location = new System.Drawing.Point(197, 74);
+            this.textBoxUsername.Multiline = true;
+            this.textBoxUsername.Name = "textBoxUsername";
+            this.textBoxUsername.Size = new System.Drawing.Size(100, 21);
+            this.textBoxUsername.TabIndex = 6;
             // 
-            // textBox1
+            // textBoxName
             // 
-            this.textBox1.Location = new System.Drawing.Point(197, 40);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 5;
+            this.textBoxName.Location = new System.Drawing.Point(197, 40);
+            this.textBoxName.Multiline = true;
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxName.TabIndex = 5;
             // 
-            // textBox2
+            // labelTelephoneNumber
             // 
-            this.textBox2.Location = new System.Drawing.Point(197, 74);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 21);
-            this.textBox2.TabIndex = 6;
+            this.labelTelephoneNumber.BackColor = System.Drawing.Color.Lavender;
+            this.labelTelephoneNumber.Font = new System.Drawing.Font("Mongolian Baiti", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTelephoneNumber.Location = new System.Drawing.Point(32, 184);
+            this.labelTelephoneNumber.Name = "labelTelephoneNumber";
+            this.labelTelephoneNumber.Size = new System.Drawing.Size(100, 22);
+            this.labelTelephoneNumber.TabIndex = 4;
+            this.labelTelephoneNumber.Text = "Telefon No:";
+            this.labelTelephoneNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelTelephoneNumber.Click += new System.EventHandler(this.label6_Click);
             // 
-            // textBox3
+            // labelPassword_register
             // 
-            this.textBox3.Location = new System.Drawing.Point(197, 109);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 7;
+            this.labelPassword_register.BackColor = System.Drawing.Color.Lavender;
+            this.labelPassword_register.Font = new System.Drawing.Font("Mongolian Baiti", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPassword_register.Location = new System.Drawing.Point(32, 145);
+            this.labelPassword_register.Name = "labelPassword_register";
+            this.labelPassword_register.Size = new System.Drawing.Size(100, 23);
+            this.labelPassword_register.TabIndex = 3;
+            this.labelPassword_register.Text = "Şifre:";
+            this.labelPassword_register.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox4
+            // labelEmail
             // 
-            this.textBox4.Location = new System.Drawing.Point(197, 145);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 8;
+            this.labelEmail.BackColor = System.Drawing.Color.Lavender;
+            this.labelEmail.Font = new System.Drawing.Font("Mongolian Baiti", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmail.Location = new System.Drawing.Point(32, 109);
+            this.labelEmail.Name = "labelEmail";
+            this.labelEmail.Size = new System.Drawing.Size(100, 22);
+            this.labelEmail.TabIndex = 2;
+            this.labelEmail.Text = "E posta:";
+            this.labelEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox5
+            // labelLasName
             // 
-            this.textBox5.Location = new System.Drawing.Point(197, 184);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 22);
-            this.textBox5.TabIndex = 9;
+            this.labelLasName.BackColor = System.Drawing.Color.Lavender;
+            this.labelLasName.Font = new System.Drawing.Font("Mongolian Baiti", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLasName.Location = new System.Drawing.Point(32, 74);
+            this.labelLasName.Name = "labelLasName";
+            this.labelLasName.Size = new System.Drawing.Size(100, 21);
+            this.labelLasName.TabIndex = 1;
+            this.labelLasName.Text = "Soyad";
+            this.labelLasName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // labelName
             // 
-            this.button1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Mongolian Baiti", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(117, 227);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 34);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Kayıt Ol";
-            this.button1.UseVisualStyleBackColor = false;
+            this.labelName.BackColor = System.Drawing.Color.Lavender;
+            this.labelName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelName.Font = new System.Drawing.Font("Mongolian Baiti", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName.Location = new System.Drawing.Point(32, 40);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(100, 20);
+            this.labelName.TabIndex = 0;
+            this.labelName.Text = "Ad:";
+            this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelName.Click += new System.EventHandler(this.label2_Click);
             // 
             // RegisterForm
             // 
@@ -189,7 +192,7 @@
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_kayit_ekrani);
             this.Name = "RegisterForm";
             this.Text = "RegisterForm";
             this.groupBox1.ResumeLayout(false);
@@ -200,18 +203,18 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_kayit_ekrani;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label labelTelephoneNumber;
+        private System.Windows.Forms.Label labelPassword_register;
+        private System.Windows.Forms.Label labelEmail;
+        private System.Windows.Forms.Label labelLasName;
+        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.Button buttonKayitOl;
+        private System.Windows.Forms.TextBox textBoxTelephoneNumber;
+        private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.TextBox textBoxEmail;
+        private System.Windows.Forms.TextBox textBoxUsername;
+        private System.Windows.Forms.TextBox textBoxName;
     }
 }
