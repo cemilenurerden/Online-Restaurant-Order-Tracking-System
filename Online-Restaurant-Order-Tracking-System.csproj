@@ -40,11 +40,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bos_dosya.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bos_dosya.Designer.cs">
+      <DependentUpon>bos_dosya.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="hosgeldinizBolumu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="hosgeldinizBolumu.Designer.cs">
+      <DependentUpon>hosgeldinizBolumu.cs</DependentUpon>
     </Compile>
     <Compile Include="menu.cs">
       <SubType>Form</SubType>
@@ -62,6 +74,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hosgeldinizBolumu.resx">
+      <DependentUpon>hosgeldinizBolumu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menu.resx">
       <DependentUpon>menu.cs</DependentUpon>
@@ -124,6 +139,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\4994444c2a8447af58521d63b78b4b02.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c7993eb4364414034ce368088cffa6c0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c7993eb4364414034ce368088cffa6c01.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

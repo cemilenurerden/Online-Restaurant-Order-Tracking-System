@@ -9,3 +9,4 @@ C:\Users\cemilenur\OneDrive\Masaüstü\Online-Restaurant-Order-Tracking-System\o
 C:\Users\cemilenur\OneDrive\Masaüstü\Online-Restaurant-Order-Tracking-System\obj\Debug\Online-Restaurant-Order-Tracking-System.pdb
 C:\Users\cemilenur\OneDrive\Masaüstü\Online-Restaurant-Order-Tracking-System\obj\Debug\Online_Restaurant_Order_Tracking_System.RegisterForm.resources
 C:\Users\cemilenur\OneDrive\Masaüstü\Online-Restaurant-Order-Tracking-System\obj\Debug\Online_Restaurant_Order_Tracking_System.menu.resources
+C:\Users\cemilenur\OneDrive\Masaüstü\Online-Restaurant-Order-Tracking-System\obj\Debug\Online_Restaurant_Order_Tracking_System.hosgeldinizBolumu.resources

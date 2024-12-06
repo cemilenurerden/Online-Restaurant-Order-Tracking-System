@@ -44,7 +44,7 @@
             this.buttonHosgeldin.Name = "buttonHosgeldin";
             this.buttonHosgeldin.Size = new System.Drawing.Size(385, 149);
             this.buttonHosgeldin.TabIndex = 0;
-            this.buttonHosgeldin.Text = "CEES RESTAURANT";
+            this.buttonHosgeldin.Text = "CEem RESTAURANT";
             this.buttonHosgeldin.UseVisualStyleBackColor = false;
             this.buttonHosgeldin.Click += new System.EventHandler(this.buttonHosgeldin_Click);
             // 
