@@ -41,6 +41,8 @@
             this.labelEmail = new System.Windows.Forms.Label();
             this.labelLasName = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
+            this.labelAdress = new System.Windows.Forms.Label();
+            this.textBoxAdress = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +61,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBoxAdress);
+            this.groupBox1.Controls.Add(this.labelAdress);
             this.groupBox1.Controls.Add(this.buttonKayitOl);
             this.groupBox1.Controls.Add(this.textBoxTelephoneNumber);
             this.groupBox1.Controls.Add(this.textBoxPassword);
@@ -92,36 +96,37 @@
             // 
             // textBoxTelephoneNumber
             // 
-            this.textBoxTelephoneNumber.Location = new System.Drawing.Point(197, 184);
+            this.textBoxTelephoneNumber.Location = new System.Drawing.Point(197, 161);
             this.textBoxTelephoneNumber.Name = "textBoxTelephoneNumber";
             this.textBoxTelephoneNumber.Size = new System.Drawing.Size(100, 22);
             this.textBoxTelephoneNumber.TabIndex = 9;
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(197, 145);
+            this.textBoxPassword.Location = new System.Drawing.Point(197, 130);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(100, 22);
             this.textBoxPassword.TabIndex = 8;
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(197, 109);
+            this.textBoxEmail.Location = new System.Drawing.Point(197, 94);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(100, 22);
             this.textBoxEmail.TabIndex = 7;
             // 
             // textBoxUsername
             // 
-            this.textBoxUsername.Location = new System.Drawing.Point(197, 74);
+            this.textBoxUsername.Location = new System.Drawing.Point(197, 63);
             this.textBoxUsername.Multiline = true;
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(100, 21);
             this.textBoxUsername.TabIndex = 6;
+            this.textBoxUsername.TextChanged += new System.EventHandler(this.textBoxUsername_TextChanged);
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(197, 40);
+            this.textBoxName.Location = new System.Drawing.Point(197, 29);
             this.textBoxName.Multiline = true;
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(100, 20);
@@ -131,7 +136,7 @@
             // 
             this.labelTelephoneNumber.BackColor = System.Drawing.Color.Lavender;
             this.labelTelephoneNumber.Font = new System.Drawing.Font("Mongolian Baiti", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTelephoneNumber.Location = new System.Drawing.Point(32, 184);
+            this.labelTelephoneNumber.Location = new System.Drawing.Point(32, 161);
             this.labelTelephoneNumber.Name = "labelTelephoneNumber";
             this.labelTelephoneNumber.Size = new System.Drawing.Size(100, 22);
             this.labelTelephoneNumber.TabIndex = 4;
@@ -143,7 +148,7 @@
             // 
             this.labelPassword_register.BackColor = System.Drawing.Color.Lavender;
             this.labelPassword_register.Font = new System.Drawing.Font("Mongolian Baiti", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPassword_register.Location = new System.Drawing.Point(32, 145);
+            this.labelPassword_register.Location = new System.Drawing.Point(32, 129);
             this.labelPassword_register.Name = "labelPassword_register";
             this.labelPassword_register.Size = new System.Drawing.Size(100, 23);
             this.labelPassword_register.TabIndex = 3;
@@ -154,7 +159,7 @@
             // 
             this.labelEmail.BackColor = System.Drawing.Color.Lavender;
             this.labelEmail.Font = new System.Drawing.Font("Mongolian Baiti", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmail.Location = new System.Drawing.Point(32, 109);
+            this.labelEmail.Location = new System.Drawing.Point(32, 94);
             this.labelEmail.Name = "labelEmail";
             this.labelEmail.Size = new System.Drawing.Size(100, 22);
             this.labelEmail.TabIndex = 2;
@@ -165,7 +170,7 @@
             // 
             this.labelLasName.BackColor = System.Drawing.Color.Lavender;
             this.labelLasName.Font = new System.Drawing.Font("Mongolian Baiti", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLasName.Location = new System.Drawing.Point(32, 74);
+            this.labelLasName.Location = new System.Drawing.Point(32, 63);
             this.labelLasName.Name = "labelLasName";
             this.labelLasName.Size = new System.Drawing.Size(100, 21);
             this.labelLasName.TabIndex = 1;
@@ -177,13 +182,33 @@
             this.labelName.BackColor = System.Drawing.Color.Lavender;
             this.labelName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelName.Font = new System.Drawing.Font("Mongolian Baiti", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelName.Location = new System.Drawing.Point(32, 40);
+            this.labelName.Location = new System.Drawing.Point(32, 29);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(100, 20);
             this.labelName.TabIndex = 0;
             this.labelName.Text = "Ad:";
             this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelName.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // labelAdress
+            // 
+            this.labelAdress.BackColor = System.Drawing.Color.Lavender;
+            this.labelAdress.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelAdress.Location = new System.Drawing.Point(32, 192);
+            this.labelAdress.Name = "labelAdress";
+            this.labelAdress.Size = new System.Drawing.Size(100, 23);
+            this.labelAdress.TabIndex = 11;
+            this.labelAdress.Text = "Adres:";
+            this.labelAdress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelAdress.Click += new System.EventHandler(this.labelAdress_Click);
+            // 
+            // textBoxAdress
+            // 
+            this.textBoxAdress.Location = new System.Drawing.Point(197, 192);
+            this.textBoxAdress.Name = "textBoxAdress";
+            this.textBoxAdress.Size = new System.Drawing.Size(100, 22);
+            this.textBoxAdress.TabIndex = 12;
+            this.textBoxAdress.TextChanged += new System.EventHandler(this.textBoxAdress_TextChanged);
             // 
             // RegisterForm
             // 
@@ -216,5 +241,7 @@
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.TextBox textBoxAdress;
+        private System.Windows.Forms.Label labelAdress;
     }
 }

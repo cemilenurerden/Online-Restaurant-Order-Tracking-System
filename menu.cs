@@ -19,5 +19,10 @@ namespace Online_Restaurant_Order_Tracking_System
         {
 
         }
+
+        private void buttonİcecekler_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -32,21 +32,21 @@ namespace Online_Restaurant_Order_Tracking_System
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menu));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonHakkimizda = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.labelCorba = new System.Windows.Forms.Label();
             this.labelAnaYemek = new System.Windows.Forms.Label();
             this.labelSalata = new System.Windows.Forms.Label();
             this.labelHamburger = new System.Windows.Forms.Label();
             this.labelPasta = new System.Windows.Forms.Label();
             this.labelİçecek = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.buttonİcecekler = new System.Windows.Forms.Button();
             this.buttonTatli = new System.Windows.Forms.Button();
             this.buttonHamburger = new System.Windows.Forms.Button();
             this.buttonSalatalar = new System.Windows.Forms.Button();
             this.buttonAnaYemekler = new System.Windows.Forms.Button();
             this.buttonCorbalar = new System.Windows.Forms.Button();
-            this.buttonHakkimizda = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
@@ -64,6 +64,42 @@ namespace Online_Restaurant_Order_Tracking_System
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // buttonHakkimizda
+            // 
+            this.buttonHakkimizda.BackColor = System.Drawing.Color.Gray;
+            this.buttonHakkimizda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonHakkimizda.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.buttonHakkimizda.ForeColor = System.Drawing.Color.DarkSeaGreen;
+            this.buttonHakkimizda.Location = new System.Drawing.Point(229, 21);
+            this.buttonHakkimizda.Name = "buttonHakkimizda";
+            this.buttonHakkimizda.Size = new System.Drawing.Size(350, 50);
+            this.buttonHakkimizda.TabIndex = 2;
+            this.buttonHakkimizda.Text = "HAKKIMIZDA";
+            this.buttonHakkimizda.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Image = global::Online_Restaurant_Order_Tracking_System.Properties.Resources.add_to_cart;
+            this.pictureBox1.Location = new System.Drawing.Point(742, 21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(46, 36);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBoxLogo.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.ErrorImage")));
+            this.pictureBoxLogo.Image = global::Online_Restaurant_Order_Tracking_System.Properties.Resources.restaurant__1_;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(16, 21);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(47, 36);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxLogo.TabIndex = 0;
+            this.pictureBoxLogo.TabStop = false;
             // 
             // labelCorba
             // 
@@ -128,29 +164,6 @@ namespace Online_Restaurant_Order_Tracking_System
             this.labelİçecek.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelİçecek.Click += new System.EventHandler(this.labelİçecek_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Image = global::Online_Restaurant_Order_Tracking_System.Properties.Resources.add_to_cart;
-            this.pictureBox1.Location = new System.Drawing.Point(742, 21);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(46, 36);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBoxLogo
-            // 
-            this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBoxLogo.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.ErrorImage")));
-            this.pictureBoxLogo.Image = global::Online_Restaurant_Order_Tracking_System.Properties.Resources.restaurant__1_;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(16, 21);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(47, 36);
-            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxLogo.TabIndex = 0;
-            this.pictureBoxLogo.TabStop = false;
-            // 
             // buttonİcecekler
             // 
             this.buttonİcecekler.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -162,6 +175,7 @@ namespace Online_Restaurant_Order_Tracking_System
             this.buttonİcecekler.Size = new System.Drawing.Size(184, 185);
             this.buttonİcecekler.TabIndex = 5;
             this.buttonİcecekler.UseVisualStyleBackColor = false;
+            this.buttonİcecekler.Click += new System.EventHandler(this.buttonİcecekler_Click);
             // 
             // buttonTatli
             // 
@@ -222,19 +236,6 @@ namespace Online_Restaurant_Order_Tracking_System
             this.buttonCorbalar.TabIndex = 0;
             this.buttonCorbalar.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.buttonCorbalar.UseVisualStyleBackColor = true;
-            // 
-            // buttonHakkimizda
-            // 
-            this.buttonHakkimizda.BackColor = System.Drawing.Color.Gray;
-            this.buttonHakkimizda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonHakkimizda.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.buttonHakkimizda.ForeColor = System.Drawing.Color.DarkSeaGreen;
-            this.buttonHakkimizda.Location = new System.Drawing.Point(229, 21);
-            this.buttonHakkimizda.Name = "buttonHakkimizda";
-            this.buttonHakkimizda.Size = new System.Drawing.Size(350, 50);
-            this.buttonHakkimizda.TabIndex = 2;
-            this.buttonHakkimizda.Text = "HAKKIMIZDA";
-            this.buttonHakkimizda.UseVisualStyleBackColor = false;
             // 
             // menu
             // 
