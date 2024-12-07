@@ -1,7 +1,9 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -25,30 +27,60 @@ namespace Online_Restaurant_Order_Tracking_System
 
         private void register_Click(object sender, EventArgs e)
         {
-            // Kullanıcı adı ve şifre kontrolü için örnek değerler
-            string correctUsername = "admin";
-            string correctPassword = "1234";
-
-            // Kullanıcıdan alınan giriş bilgileri (textbox kontrol adlarınızı uygun şekilde değiştirin)
+            // Kullanıcıdan alınan giriş bilgileri
             string enteredUsername = textBoxUsername.Text; // Kullanıcı adı giriş textbox'ı
             string enteredPassword = textBoxPassword.Text; // Şifre giriş textbox'ı
 
-            // Giriş bilgilerini doğrulama
-            if (enteredUsername == correctUsername && enteredPassword == correctPassword)
-            {
-                MessageBox.Show("Giriş başarılı!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // Başarılı giriş sonrası yapılacak işlemler (örneğin yeni bir form açma)
+            // Veritabanı bağlantı dizesi
+            string connectionString = "Server=localhost;Database=restaurantsystem;User Id=root;Password=;";
 
-            }
-            else
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                MessageBox.Show("Kullanıcı adı veya şifre hatalı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+                    // Bağlantıyı aç
+                    connection.Open();
+
+                    // Kullanıcı adı ve şifreyi kontrol eden SQL sorgusu
+                    string query = "SELECT COUNT(*) FROM users WHERE email = @Username AND password = @Password";
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        // Parametreleri ekle
+                        command.Parameters.AddWithValue("@Username", enteredUsername);
+                        command.Parameters.AddWithValue("@Password", enteredPassword);
+
+                        // Sonuç al
+                        int userCount = Convert.ToInt32(command.ExecuteScalar());
+
+                        if (userCount > 0)
+                        {
+                            MessageBox.Show("Giriş başarılı!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Başarılı giriş sonrası menüye geçiş
+                            menu menum = new menu();
+                            menum.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Geçersiz kullanıcı adı veya şifre.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Hata durumunda mesaj göster
+                    MessageBox.Show("Bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
+            RegisterForm registerForm = new RegisterForm();
+            registerForm.Show(); // Kayıt Ol formunu aç
+            this.Hide();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
