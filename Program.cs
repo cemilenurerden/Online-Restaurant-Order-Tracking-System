@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Online_Restaurant_Order_Tracking_System.Forms;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -14,7 +15,7 @@ namespace Online_Restaurant_Order_Tracking_System
         {
             Application.EnableVisualStyles(); 
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new hosgeldinizBolumu());
+            Application.Run(new menu());
         }
     }
 }

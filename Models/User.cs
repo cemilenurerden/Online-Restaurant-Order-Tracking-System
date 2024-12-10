@@ -18,7 +18,6 @@ namespace Online_Restaurant_Order_Tracking_System.Models
         public enum UserRole
         {
             admin,
-            s,
             user,
             worker
         }
