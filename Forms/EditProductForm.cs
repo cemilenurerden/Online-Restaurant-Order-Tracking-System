@@ -22,18 +22,8 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             try
             {
                 var product = _productRepository.GetProductById(_productId);
-                if (product != null)
-                {
-                    textBoxProductName.Text = product.ProductName;
-                    textBoxPrice.Text = product.Price.ToString();
-                    textBoxStock.Text = product.Stock.ToString();
-                    LoadCategories(product.CategoryId);
-                }
-                else
-                {
-                    MessageBox.Show("Ürün bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.Close();
-                }
+               
+               
             }
             catch (Exception ex)
             {
@@ -44,11 +34,7 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
 
         private void LoadCategories(int selectedCategoryId)
         {
-            var categories = _productRepository.GetCategories();
-            comboBoxCategory.DataSource = categories;
-            comboBoxCategory.DisplayMember = "CategoryName";
-            comboBoxCategory.ValueMember = "CategoryId";
-            comboBoxCategory.SelectedValue = selectedCategoryId;
+            
         }
 
         private void buttonSave_Click(object sender, EventArgs e)

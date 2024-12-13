@@ -22,8 +22,6 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
 
         private void LoadEmployeeData()
         {
-            var employees = _employeeRepository.GetAllEmployees();
-            dataGridViewEmployees.DataSource = employees;
         }
 
         private void ButtonAddEmployee_Click(object sender, EventArgs e)
@@ -32,7 +30,7 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             {
                 if (addEmployeeForm.ShowDialog() == DialogResult.OK)
                 {
-                    _employeeRepository.AddEmployee(addEmployeeForm.Employee);
+                   // _employeeRepository.AddEmployee(addEmployeeForm.Employee);
                     LoadEmployeeData();
                 }
             }
@@ -47,14 +45,14 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             }
 
             var employeeId = (int)dataGridViewEmployees.CurrentRow.Cells["EmployeeId"].Value;
-            _employeeRepository.DeleteEmployee(employeeId);
+       //     _employeeRepository.DeleteEmployee(employeeId);
             LoadEmployeeData();
         }
 
         private void TextBoxSearchEmployee_TextChanged(object sender, EventArgs e)
         {
             var searchQuery = textBoxSearchEmployee.Text.Trim();
-            dataGridViewEmployees.DataSource = _employeeRepository.SearchEmployees(searchQuery);
+        //    dataGridViewEmployees.DataSource = _employeeRepository.SearchEmployees(searchQuery);
         }
     }
 }

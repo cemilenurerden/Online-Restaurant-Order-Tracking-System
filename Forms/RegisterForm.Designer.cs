@@ -57,7 +57,7 @@
             this.label_kayit_ekrani.TabIndex = 0;
             this.label_kayit_ekrani.Text = "Kayıt Ekranı";
             this.label_kayit_ekrani.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label_kayit_ekrani.Click += new System.EventHandler(this.label_kayit_ekrani_Click);
+       //     this.label_kayit_ekrani.Click += new System.EventHandler(this.label_kayit_ekrani_Click);
             // 
             // groupBox1
             // 
@@ -87,7 +87,7 @@
             this.textBoxAdress.Name = "textBoxAdress";
             this.textBoxAdress.Size = new System.Drawing.Size(100, 22);
             this.textBoxAdress.TabIndex = 12;
-            this.textBoxAdress.TextChanged += new System.EventHandler(this.textBoxAdress_TextChanged);
+        //    this.textBoxAdress.TextChanged += new System.EventHandler(this.textBoxAdress_TextChanged);
             // 
             // labelAdress
             // 
@@ -99,7 +99,7 @@
             this.labelAdress.TabIndex = 11;
             this.labelAdress.Text = "Adres:";
             this.labelAdress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelAdress.Click += new System.EventHandler(this.labelAdress_Click);
+       //     this.labelAdress.Click += new System.EventHandler(this.labelAdress_Click);
             // 
             // buttonKayitOl
             // 
@@ -142,7 +142,7 @@
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(100, 21);
             this.textBoxUsername.TabIndex = 6;
-            this.textBoxUsername.TextChanged += new System.EventHandler(this.textBoxUsername_TextChanged);
+         //   this.textBoxUsername.TextChanged += new System.EventHandler(this.textBoxUsername_TextChanged);
             // 
             // textBoxName
             // 
@@ -151,6 +151,7 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(100, 20);
             this.textBoxName.TabIndex = 5;
+        //    this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // labelTelephoneNumber
             // 
@@ -162,7 +163,7 @@
             this.labelTelephoneNumber.TabIndex = 4;
             this.labelTelephoneNumber.Text = "Telefon No:";
             this.labelTelephoneNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelTelephoneNumber.Click += new System.EventHandler(this.label6_Click);
+     //       this.labelTelephoneNumber.Click += new System.EventHandler(this.label6_Click);
             // 
             // labelPassword_register
             // 
@@ -208,7 +209,7 @@
             this.labelName.TabIndex = 0;
             this.labelName.Text = "Ad:";
             this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelName.Click += new System.EventHandler(this.label2_Click);
+        //    this.labelName.Click += new System.EventHandler(this.label2_Click);
             // 
             // RegisterForm
             // 
@@ -220,7 +221,7 @@
             this.Controls.Add(this.label_kayit_ekrani);
             this.Name = "RegisterForm";
             this.Text = "RegisterForm";
-            this.Load += new System.EventHandler(this.RegisterForm_Load);
+        //    this.Load += new System.EventHandler(this.RegisterForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

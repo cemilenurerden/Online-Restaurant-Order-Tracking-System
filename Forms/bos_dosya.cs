@@ -14,6 +14,8 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
     public partial class bos_dosya : BaseForm
     {
         private readonly ProductRepository repository;
+        public int CategoryId { get; set; }
+
         public bos_dosya()
         {
             InitializeComponent();
@@ -22,7 +24,18 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
         }
         private void bos_dosya_Load(object sender, EventArgs e)
         {
-            List<Product> products = repository.GetAllProducts();
+            List<Product> products;
+            if (CategoryId > 0)
+            {
+                // Gönderilen kategori ID'ye göre ürünleri al
+                products = repository.GetProductsByCategoryId(CategoryId);
+            }
+            else
+            {
+                // Tüm ürünleri al
+                products = repository.GetAllProducts();
+            }
+
             LoadProductsToPanel(products);
         }
 
@@ -111,6 +124,11 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
         {
             var cartForm = new CartForm(); // Sepet formunu aç
             cartForm.ShowDialog();
+
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

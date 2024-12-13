@@ -51,16 +51,16 @@ namespace Online_Restaurant_Order_Tracking_System.Repositories
         }
 
         // 3. UPDATE (Ürün Güncelleme)
-        public void UpdateProduct(int id, string name, decimal price, string imagePath)
+        public void UpdateProduct(Product product)
         {
             using (var connection = DatabaseHelper.GetConnection())
             {
                 string query = "UPDATE products SET name = @Name, price = @Price, image_path = @ImagePath WHERE id = @Id";
                 var command = new MySqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Id", id);
-                command.Parameters.AddWithValue("@Name", name);
-                command.Parameters.AddWithValue("@Price", price);
-                command.Parameters.AddWithValue("@ImagePath", imagePath);
+                command.Parameters.AddWithValue("@Id", product.Id);
+                command.Parameters.AddWithValue("@Name", product.Name);
+                command.Parameters.AddWithValue("@Price", product.Price);
+             //   command.Parameters.AddWithValue("@ImagePath", product.);
 
                 connection.Open();
                 command.ExecuteNonQuery();
@@ -109,6 +109,62 @@ namespace Online_Restaurant_Order_Tracking_System.Repositories
             }
             return products;
         }
+
+        public List<Product> GetProductById(int id)
+        {
+            var products = new List<Product>();
+
+            using (var conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                string query = "SELECT * FROM urunler WHERE product_id = @id";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", id);
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        products.Add(new Product
+                        {
+                            Id = reader.GetInt32("id"),
+                            Name = reader.GetString("urun_adi"),
+                            Price = reader.GetDecimal("fiyat")
+                        });
+                    }
+                }
+            }
+
+            return products;
+        }
+        public List<Product> GetProductsByCategoryId(int categoryId)
+        {
+            var products = new List<Product>();
+            using (var connection = DatabaseHelper.GetConnection())
+            {
+                string query = "SELECT * FROM products WHERE category_id = @CategoryId";
+                var command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@CategoryId", categoryId);
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        products.Add(new Product
+                        {
+                            Id = reader.GetInt32("product_id"),
+                            Name = reader.GetString("name"),
+                            Price = reader.GetDecimal("price"),
+                            ImagePath = reader.GetString("image"),
+                            CategoryId = reader.GetInt32("category_id")
+                        });
+                    }
+                }
+            }
+            return products;
+        }
+
+
         public List<Product> SearchProducts(string keyword)
         {
             var products = new List<Product>();

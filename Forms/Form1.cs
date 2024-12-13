@@ -7,6 +7,8 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Online_Restaurant_Order_Tracking_System.Helpers;
+using Online_Restaurant_Order_Tracking_System.Repositories;
 
 // önce 
 // git add . 
@@ -28,52 +30,69 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
         private void register_Click(object sender, EventArgs e)
         {
             // Kullanıcıdan alınan giriş bilgileri
-            string enteredUsername = textBoxUsername.Text; // Kullanıcı adı giriş textbox'ı
+            string enteredEmail = textBoxUsername.Text; // Kullanıcı adı giriş textbox'ı
             string enteredPassword = textBoxPassword.Text; // Şifre giriş textbox'ı
 
             // Veritabanı bağlantı dizesi
-            string connectionString = "Server=localhost;Database=restaurantsystem;User Id=root;Password=;";
-
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            // Validasyon
+            if (string.IsNullOrEmpty(enteredEmail) || string.IsNullOrEmpty(enteredPassword))
             {
-                try
-                {
-                    // Bağlantıyı aç
-                    connection.Open();
-
-                    // Kullanıcı adı ve şifreyi kontrol eden SQL sorgusu
-                    string query = "SELECT COUNT(*) FROM users WHERE email = @Username AND password = @Password";
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
-                    {
-                        // Parametreleri ekle
-                        command.Parameters.AddWithValue("@Username", enteredUsername);
-                        command.Parameters.AddWithValue("@Password", enteredPassword);
-
-                        // Sonuç al
-                        int userCount = Convert.ToInt32(command.ExecuteScalar());
-
-                        if (userCount > 0)
-                        {
-                            MessageBox.Show("Giriş başarılı!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            // Başarılı giriş sonrası menüye geçiş
-                            menu menum = new menu();
-                            menum.Show();
-                            this.Hide();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Geçersiz kullanıcı adı veya şifre.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    // Hata durumunda mesaj göster
-                    MessageBox.Show("Bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show("Email ve şifre alanları boş bırakılamaz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
+            if (!IsValidEmail(enteredEmail))
+            {
+                MessageBox.Show("Geçersiz email formatı!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                // Kullanıcıyı email ile getir
+                var userRepo = new UserRepository();
+                var user = userRepo.GetUserByEmail(enteredEmail);
+
+                if (user == null)
+                {
+                    MessageBox.Show("Bu email ile kayıtlı bir kullanıcı bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Şifre doğrulama
+                if (user.Password != enteredPassword)
+                {
+                    MessageBox.Show("Yanlış şifre girdiniz. Lütfen tekrar deneyin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Giriş başarılı
+                MessageBox.Show($"Hoş geldiniz, {user.FirstName}!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SessionManager.IsLoggedIn = true;
+                SessionManager.UserId = user.UserId;
+                // Giriş yaptıktan sonra ana sayfaya yönlendirme
+                menu mainForm = new menu(); // Ana sayfa formu
+                mainForm.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Giriş sırasında bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

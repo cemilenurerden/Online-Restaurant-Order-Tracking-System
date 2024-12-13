@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using MySql.Data.MySqlClient; 
+using Online_Restaurant_Order_Tracking_System.Repositories;
+using Online_Restaurant_Order_Tracking_System.Models;
 
 namespace Online_Restaurant_Order_Tracking_System.Forms
 {
@@ -17,105 +12,85 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             InitializeComponent();
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void buttonKayitOl_Click(object sender, EventArgs e)
         {
+            // Kullanıcıdan alınan bilgiler
+            string firstName = textBoxName.Text.Trim();
+            string lastName = textBoxUsername.Text.Trim();
+            string email = textBoxEmail.Text.Trim();
+            string phone = textBoxTelephoneNumber.Text.Trim();
+            string address = textBoxAdress.Text.Trim();
+            string password = textBoxPassword.Text.Trim();
+            string role = "user"; // Varsayılan rol
 
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_kayit_ekrani_Click(object sender, EventArgs e)
-        {
-
-        }
-
-       
-
-private void buttonKayitOl_Click(object sender, EventArgs e)
-    {
-        // Kullanıcıdan alınan bilgiler
-        string firstName = textBoxName.Text;
-        string lastName = textBoxUsername.Text;
-        string email = textBoxEmail.Text;
-        string phone = textBoxTelephoneNumber.Text;
-        string address = textBoxAdress.Text;
-        string password = textBoxPassword.Text;
-        string role = "user"; // Varsayılan rol
-
-        // Alanların boş olup olmadığını kontrol et
-        if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) ||
-            string.IsNullOrEmpty(email) || string.IsNullOrEmpty(phone) ||
-            string.IsNullOrEmpty(address) || string.IsNullOrEmpty(password))
-        {
-            MessageBox.Show("Lütfen tüm alanları doldurun!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        // Veritabanına ekleme
-        try
-        {
-                // MySQL bağlantı dizesi
-                string connectionString = "Server=localhost;Database=restaurantsystem;User Id=root;Password=;";
-
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+            // Validasyon
+            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) ||
+                string.IsNullOrEmpty(email) || string.IsNullOrEmpty(phone) ||
+                string.IsNullOrEmpty(address) || string.IsNullOrEmpty(password))
             {
-                connection.Open();
-
-                // SQL sorgusu
-                string query = "INSERT INTO users (first_name, last_name, email, phone, address, password, role) " +
-                               "VALUES (@FirstName, @LastName, @Email, @Phone, @Address, @Password, @Role)";
-
-                using (MySqlCommand command = new MySqlCommand(query, connection))
-                {
-                    // Parametreler
-                    command.Parameters.AddWithValue("@FirstName", firstName);
-                    command.Parameters.AddWithValue("@LastName", lastName);
-                    command.Parameters.AddWithValue("@Email", email);
-                    command.Parameters.AddWithValue("@Phone", phone);
-                    command.Parameters.AddWithValue("@Address", address);
-                    command.Parameters.AddWithValue("@Password", password);
-                    command.Parameters.AddWithValue("@Role", role);
-
-                    // Sorguyu çalıştır
-                    command.ExecuteNonQuery();
-                }
+                MessageBox.Show("Lütfen tüm alanları doldurun!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
-            MessageBox.Show("Kayıt başarılı!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (!IsValidEmail(email))
+            {
+                MessageBox.Show("Geçersiz email formatı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            // Kayıt başarılı, giriş ekranına dön
-            Form1 loginForm = new Form1();
-            loginForm.Show(); // Giriş formunu aç
-            this.Hide();      // Kayıt formunu gizle
+            try
+            {
+                // Kullanıcı modeli oluştur
+                var newUser = new User
+                {
+                    FirstName = firstName,
+                    LastName = lastName,
+                    Email = email,
+                    Phone = phone,
+                    Address = address,
+                    Password = password,
+                    Role = role
+                };
+
+                // Kullanıcıyı kaydetmek için UserRepository kullan
+                var userRepo = new UserRepository();
+
+                // Kullanıcı zaten mevcut mu kontrol et
+                var existingUser = userRepo.GetUserByEmail(email);
+                if (existingUser != null)
+                {
+                    MessageBox.Show("Bu email adresiyle zaten bir kullanıcı kayıtlı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Yeni kullanıcıyı ekle
+                userRepo.AddUser(newUser);
+
+                MessageBox.Show("Kayıt başarılı!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Kayıt başarılı, giriş ekranına dön
+                Form1 loginForm = new Form1();
+                loginForm.Show(); // Giriş formunu aç
+                this.Hide();      // Kayıt formunu gizle
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Kayıt sırasında bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-        catch (Exception ex)
+
+        // Email doğrulama
+        private bool IsValidEmail(string email)
         {
-            MessageBox.Show($"Kayıt başarısız: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-    }
-
-
-    private void textBoxUsername_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelAdress_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxAdress_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RegisterForm_Load(object sender, EventArgs e)
-        {
-
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
