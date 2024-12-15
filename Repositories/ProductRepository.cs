@@ -9,17 +9,20 @@ namespace Online_Restaurant_Order_Tracking_System.Repositories
     public class ProductRepository
     {
         // 1. CREATE (Yeni Ürün Ekleme)
-        public void AddProduct(string name, decimal price, string imagePath)
+        public void AddProduct(Product product)
         {
             using (var connection = DatabaseHelper.GetConnection())
             {
-                string query = "INSERT INTO products (name, price, image_path) VALUES (@Name, @Price, @ImagePath)";
+                string query = "INSERT INTO products (name, description, image, price, category_id) " +
+                               "VALUES (@Name, @Description, @Image, @Price, @CategoryId)";
                 var command = new MySqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Name", name);
-                command.Parameters.AddWithValue("@Price", price);
-                command.Parameters.AddWithValue("@ImagePath", imagePath);
+                command.Parameters.AddWithValue("@Name", product.Name);
+                command.Parameters.AddWithValue("@Description", product.description);
+                command.Parameters.AddWithValue("@Image", product.ImagePath);
+                command.Parameters.AddWithValue("@Price", product.Price);
+                command.Parameters.AddWithValue("@CategoryId", product.CategoryId);
 
-                connection.Open();
+            
                 command.ExecuteNonQuery();
             }
         }
@@ -33,6 +36,7 @@ namespace Online_Restaurant_Order_Tracking_System.Repositories
                 string query = "SELECT * FROM products";
                 var command = new MySqlCommand(query, connection);
 
+                
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -41,8 +45,10 @@ namespace Online_Restaurant_Order_Tracking_System.Repositories
                         {
                             Id = reader.GetInt32("product_id"),
                             Name = reader.GetString("name"),
-                            Price = (int)reader.GetDecimal("price"),
-                            ImagePath = reader.GetString("image")
+                            description = reader.GetString("description"),
+                            ImagePath = reader.GetString("image"),
+                            Price = reader.GetDecimal("price"),
+                            CategoryId = reader.GetInt32("category_id")
                         });
                     }
                 }
@@ -55,88 +61,68 @@ namespace Online_Restaurant_Order_Tracking_System.Repositories
         {
             using (var connection = DatabaseHelper.GetConnection())
             {
-                string query = "UPDATE products SET name = @Name, price = @Price, image_path = @ImagePath WHERE id = @Id";
+                string query = "UPDATE products SET name = @Name, description = @Description, image = @Image, " +
+                               "price = @Price, category_id = @CategoryId WHERE product_id = @Id";
                 var command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@Id", product.Id);
                 command.Parameters.AddWithValue("@Name", product.Name);
+                command.Parameters.AddWithValue("@Description", product.description);
+                command.Parameters.AddWithValue("@Image", product.ImagePath);
                 command.Parameters.AddWithValue("@Price", product.Price);
-             //   command.Parameters.AddWithValue("@ImagePath", product.);
+                command.Parameters.AddWithValue("@CategoryId", product.CategoryId);
 
-                connection.Open();
+          
                 command.ExecuteNonQuery();
             }
         }
 
         // 4. DELETE (Ürün Silme)
-        public void DeleteProduct(int id)
+        public void DeleteProduct(int productId)
         {
             using (var connection = DatabaseHelper.GetConnection())
             {
-                string query = "DELETE FROM products WHERE id = @Id";
+                string query = "DELETE FROM products WHERE product_id = @ProductId";
                 var command = new MySqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Id", id);
+                command.Parameters.AddWithValue("@ProductId", productId);
 
-                connection.Open();
+           
                 command.ExecuteNonQuery();
             }
         }
 
-        // 5. Özel İşlem: Ürünleri Fiyat Aralığı ile Listeleme
-        public List<Product> GetProductsByPriceRange(decimal minPrice, decimal maxPrice)
+        // 5. Belirli bir ID ile Ürün Getirme
+        public Product GetProductById(int productId)
         {
-            var products = new List<Product>();
+            Product product = null;
+
             using (var connection = DatabaseHelper.GetConnection())
             {
-                string query = "SELECT * FROM products WHERE price BETWEEN @MinPrice AND @MaxPrice";
+                string query = "SELECT * FROM products WHERE product_id = @ProductId";
                 var command = new MySqlCommand(query, connection);
-                command.Parameters.AddWithValue("@MinPrice", minPrice);
-                command.Parameters.AddWithValue("@MaxPrice", maxPrice);
+                command.Parameters.AddWithValue("@ProductId", productId);
 
-                connection.Open();
+             
                 using (var reader = command.ExecuteReader())
                 {
-                    while (reader.Read())
+                    if (reader.Read())
                     {
-                        products.Add(new Product
+                        product = new Product
                         {
-                            Id = reader.GetInt32("id"),
+                            Id = reader.GetInt32("product_id"),
                             Name = reader.GetString("name"),
-                            Price = (int)reader.GetDecimal("price"),
-                            ImagePath = reader.GetString("image_path")
-                        });
-                    }
-                }
-            }
-            return products;
-        }
-
-        public List<Product> GetProductById(int id)
-        {
-            var products = new List<Product>();
-
-            using (var conn = DatabaseHelper.GetConnection())
-            {
-                conn.Open();
-                string query = "SELECT * FROM urunler WHERE product_id = @id";
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@id", id);
-
-                using (var reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        products.Add(new Product
-                        {
-                            Id = reader.GetInt32("id"),
-                            Name = reader.GetString("urun_adi"),
-                            Price = reader.GetDecimal("fiyat")
-                        });
+                            description = reader.GetString("description"),
+                            ImagePath = reader.GetString("image"),
+                            Price = reader.GetDecimal("price"),
+                            CategoryId = reader.GetInt32("category_id")
+                        };
                     }
                 }
             }
 
-            return products;
+            return product;
         }
+
+        // 6. Belirli Kategori ID'sine Göre Ürün Listeleme
         public List<Product> GetProductsByCategoryId(int categoryId)
         {
             var products = new List<Product>();
@@ -146,6 +132,7 @@ namespace Online_Restaurant_Order_Tracking_System.Repositories
                 var command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@CategoryId", categoryId);
 
+              
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -154,8 +141,9 @@ namespace Online_Restaurant_Order_Tracking_System.Repositories
                         {
                             Id = reader.GetInt32("product_id"),
                             Name = reader.GetString("name"),
-                            Price = reader.GetDecimal("price"),
+                            description = reader.GetString("description"),
                             ImagePath = reader.GetString("image"),
+                            Price = reader.GetDecimal("price"),
                             CategoryId = reader.GetInt32("category_id")
                         });
                     }
@@ -164,27 +152,30 @@ namespace Online_Restaurant_Order_Tracking_System.Repositories
             return products;
         }
 
-
+        // 7. Arama (Ürün İsmi ile)
         public List<Product> SearchProducts(string keyword)
         {
             var products = new List<Product>();
 
-            using (var conn = DatabaseHelper.GetConnection())
+            using (var connection = DatabaseHelper.GetConnection())
             {
-                conn.Open();
-                string query = "SELECT * FROM urunler WHERE urun_adi LIKE @Keyword";
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Keyword", $"%{keyword}%");
+                string query = "SELECT * FROM products WHERE name LIKE @Keyword";
+                var command = new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Keyword", $"%{keyword}%");
 
-                using (var reader = cmd.ExecuteReader())
+             
+                using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
                         products.Add(new Product
                         {
-                           Id = reader.GetInt32("id"),
-                           Name = reader.GetString("urun_adi"),
-                            Price = reader.GetDecimal("fiyat")
+                            Id = reader.GetInt32("product_id"),
+                            Name = reader.GetString("name"),
+                            description = reader.GetString("description"),
+                            ImagePath = reader.GetString("image"),
+                            Price = reader.GetDecimal("price"),
+                            CategoryId = reader.GetInt32("category_id")
                         });
                     }
                 }

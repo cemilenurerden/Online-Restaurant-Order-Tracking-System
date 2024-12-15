@@ -33,7 +33,6 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             string enteredEmail = textBoxUsername.Text; // Kullanıcı adı giriş textbox'ı
             string enteredPassword = textBoxPassword.Text; // Şifre giriş textbox'ı
 
-            // Veritabanı bağlantı dizesi
             // Validasyon
             if (string.IsNullOrEmpty(enteredEmail) || string.IsNullOrEmpty(enteredPassword))
             {
@@ -66,22 +65,39 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
                     return;
                 }
 
-                // Giriş başarılı
-                MessageBox.Show($"Hoş geldiniz, {user.FirstName}!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Giriş başarılı: Session bilgilerini ayarla
                 SessionManager.IsLoggedIn = true;
                 SessionManager.UserId = user.UserId;
-                // Giriş yaptıktan sonra ana sayfaya yönlendirme
-                menu mainForm = new menu(); // Ana sayfa formu
-                mainForm.Show();
-                this.Hide();
+                SessionManager.UserRole = user.Role; // Rol bilgisini Session'da tut
+
+                // Role göre yönlendirme
+                if (user.Role == "admin")
+                {
+                    AdminHomePage adminForm = new AdminHomePage(); // Admin sayfası
+                    adminForm.Show();
+                    MessageBox.Show("Admin sayfasına yönlendiriliyorsunuz.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (user.Role == "employee")
+                {
+                    EmployeeHomePage employeeForm = new EmployeeHomePage(); // Çalışan sayfası
+                    employeeForm.Show();
+                    MessageBox.Show("Çalışan sayfasına yönlendiriliyorsunuz.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    menu mainForm = new menu(); // Kullanıcı ana sayfası
+                    mainForm.Show();
+                    MessageBox.Show("Kullanıcı sayfasına yönlendiriliyorsunuz.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                this.Hide(); // Giriş formunu gizle
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Giriş sırasında bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
+
         private bool IsValidEmail(string email)
         {
             try

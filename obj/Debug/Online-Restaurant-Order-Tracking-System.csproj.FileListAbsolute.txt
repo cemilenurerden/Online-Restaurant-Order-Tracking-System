@@ -225,7 +225,6 @@ C:\Users\esman\source\repos\Online-Restaurant-Order-Tracking-System\obj\Debug\On
 C:\Users\esman\source\repos\Online-Restaurant-Order-Tracking-System\obj\Debug\Online_Restaurant_Order_Tracking_System.Forms.hosgeldinizBolumu.resources
 C:\Users\esman\source\repos\Online-Restaurant-Order-Tracking-System\obj\Debug\Online_Restaurant_Order_Tracking_System.Forms.RegisterForm.resources
 C:\Users\esman\source\repos\Online-Restaurant-Order-Tracking-System\obj\Debug\Online_Restaurant_Order_Tracking_System.Forms.CartForm.resources
-C:\Users\esman\source\repos\Online-Restaurant-Order-Tracking-System\obj\Debug\Online_Restaurant_Order_Tracking_System.Forms.BaseForm.resources
 C:\Users\esman\source\repos\Online-Restaurant-Order-Tracking-System\obj\Debug\Online_Restaurant_Order_Tracking_System.Forms.AdminHomePage.resources
 C:\Users\esman\source\repos\Online-Restaurant-Order-Tracking-System\obj\Debug\Online_Restaurant_Order_Tracking_System.Forms.DailyReportForm.resources
 C:\Users\esman\source\repos\Online-Restaurant-Order-Tracking-System\obj\Debug\Online_Restaurant_Order_Tracking_System.Forms.EditProductForm.resources
@@ -235,3 +234,5 @@ C:\Users\esman\source\repos\Online-Restaurant-Order-Tracking-System\obj\Debug\On
 C:\Users\esman\source\repos\Online-Restaurant-Order-Tracking-System\obj\Debug\Online_Restaurant_Order_Tracking_System.Forms.OrderStatusForm.resources
 C:\Users\esman\source\repos\Online-Restaurant-Order-Tracking-System\obj\Debug\Online_Restaurant_Order_Tracking_System.Forms.ReportForm.resources
 C:\Users\esman\source\repos\Online-Restaurant-Order-Tracking-System\obj\Debug\Online_Restaurant_Order_Tracking_System.Forms.UserDashboardForm.resources
+C:\Users\esman\source\repos\Online-Restaurant-Order-Tracking-System\obj\Debug\Online_Restaurant_Order_Tracking_System.Forms.AddEmployeeForm.resources
+C:\Users\esman\source\repos\Online-Restaurant-Order-Tracking-System\obj\Debug\Online_Restaurant_Order_Tracking_System.Forms.AddProductForm.resources

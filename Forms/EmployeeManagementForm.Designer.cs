@@ -15,23 +15,11 @@
 
         private void InitializeComponent()
         {
-            this.dataGridViewEmployees = new System.Windows.Forms.DataGridView();
             this.buttonAddEmployee = new System.Windows.Forms.Button();
-            this.buttonDeleteEmployee = new System.Windows.Forms.Button();
             this.textBoxSearchEmployee = new System.Windows.Forms.TextBox();
             this.labelSearchEmployee = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployees)).BeginInit();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
-            // 
-            // dataGridViewEmployees
-            // 
-            this.dataGridViewEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewEmployees.Location = new System.Drawing.Point(12, 50);
-            this.dataGridViewEmployees.Name = "dataGridViewEmployees";
-            this.dataGridViewEmployees.RowHeadersWidth = 51;
-            this.dataGridViewEmployees.RowTemplate.Height = 24;
-            this.dataGridViewEmployees.Size = new System.Drawing.Size(760, 300);
-            this.dataGridViewEmployees.TabIndex = 0;
             // 
             // buttonAddEmployee
             // 
@@ -41,15 +29,7 @@
             this.buttonAddEmployee.TabIndex = 1;
             this.buttonAddEmployee.Text = "Çalışan Ekle";
             this.buttonAddEmployee.UseVisualStyleBackColor = true;
-            // 
-            // buttonDeleteEmployee
-            // 
-            this.buttonDeleteEmployee.Location = new System.Drawing.Point(150, 370);
-            this.buttonDeleteEmployee.Name = "buttonDeleteEmployee";
-            this.buttonDeleteEmployee.Size = new System.Drawing.Size(120, 40);
-            this.buttonDeleteEmployee.TabIndex = 2;
-            this.buttonDeleteEmployee.Text = "Çalışan Sil";
-            this.buttonDeleteEmployee.UseVisualStyleBackColor = true;
+            this.buttonAddEmployee.Click += new System.EventHandler(this.buttonAddEmployee_Click);
             // 
             // textBoxSearchEmployee
             // 
@@ -67,28 +47,32 @@
             this.labelSearchEmployee.TabIndex = 4;
             this.labelSearchEmployee.Text = "Çalışan Ara:";
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 61);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(760, 303);
+            this.flowLayoutPanel1.TabIndex = 5;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
+            // 
             // EmployeeManagementForm
             // 
             this.ClientSize = new System.Drawing.Size(784, 450);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.labelSearchEmployee);
             this.Controls.Add(this.textBoxSearchEmployee);
-            this.Controls.Add(this.buttonDeleteEmployee);
             this.Controls.Add(this.buttonAddEmployee);
-            this.Controls.Add(this.dataGridViewEmployees);
             this.Name = "EmployeeManagementForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Çalışan Yönetimi";
             this.Load += new System.EventHandler(this.EmployeeManagementForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployees)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
-
-        private System.Windows.Forms.DataGridView dataGridViewEmployees;
         private System.Windows.Forms.Button buttonAddEmployee;
-        private System.Windows.Forms.Button buttonDeleteEmployee;
         private System.Windows.Forms.TextBox textBoxSearchEmployee;
         private System.Windows.Forms.Label labelSearchEmployee;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

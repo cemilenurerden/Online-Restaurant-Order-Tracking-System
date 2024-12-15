@@ -11,7 +11,7 @@ using Online_Restaurant_Order_Tracking_System.Repositories;
 
 namespace Online_Restaurant_Order_Tracking_System.Forms
 {
-    public partial class bos_dosya : BaseForm
+    public partial class bos_dosya : Form
     {
         private readonly ProductRepository repository;
         public int CategoryId { get; set; }
@@ -130,6 +130,41 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            string keyword = textBoxSearch.Text.Trim();
+
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                // Repository'den arama sonucunu al
+                var filteredProducts = repository.SearchProducts(keyword);
+
+                // Sonuçları ekrana yükle
+                LoadProductsToPanel(filteredProducts);
+            }
+            else
+            {
+                // Eğer arama kutusu boşsa tüm ürünleri göster
+                var allProducts = repository.GetAllProducts();
+                LoadProductsToPanel(allProducts);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            menu menu = new menu(); // Profil sayfasını aç
+                                             // LoginForm loginForm = new LoginForm(); // Giriş formunu aç
+            menu.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CartForm form = new CartForm();
+            form.Show();
+            this.Hide();
         }
     }
 }

@@ -47,7 +47,6 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
                     LastName = lastName,
                     Email = email,
                     Phone = phone,
-                    Address = address,
                     Password = password,
                     Role = role
                 };

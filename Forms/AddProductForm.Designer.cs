@@ -31,7 +31,7 @@
             this.labelProductName.AutoSize = true;
             this.labelProductName.Location = new System.Drawing.Point(20, 20);
             this.labelProductName.Name = "labelProductName";
-            this.labelProductName.Size = new System.Drawing.Size(35, 17);
+            this.labelProductName.Size = new System.Drawing.Size(30, 16);
             this.labelProductName.TabIndex = 0;
             this.labelProductName.Text = "Adı:";
             // 
@@ -47,7 +47,7 @@
             this.labelPrice.AutoSize = true;
             this.labelPrice.Location = new System.Drawing.Point(20, 60);
             this.labelPrice.Name = "labelPrice";
-            this.labelPrice.Size = new System.Drawing.Size(39, 17);
+            this.labelPrice.Size = new System.Drawing.Size(39, 16);
             this.labelPrice.TabIndex = 2;
             this.labelPrice.Text = "Fiyat:";
             // 
@@ -63,7 +63,7 @@
             this.labelCategory.AutoSize = true;
             this.labelCategory.Location = new System.Drawing.Point(20, 100);
             this.labelCategory.Name = "labelCategory";
-            this.labelCategory.Size = new System.Drawing.Size(61, 17);
+            this.labelCategory.Size = new System.Drawing.Size(60, 16);
             this.labelCategory.TabIndex = 4;
             this.labelCategory.Text = "Kategori:";
             // 
@@ -84,7 +84,7 @@
             this.buttonAddProduct.TabIndex = 6;
             this.buttonAddProduct.Text = "Ekle";
             this.buttonAddProduct.UseVisualStyleBackColor = true;
-           // this.buttonAddProduct.Click += new System.EventHandler(this.ButtonAddProduct_Click);
+            this.buttonAddProduct.Click += new System.EventHandler(this.buttonAddProduct_Click);
             // 
             // AddProductForm
             // 
@@ -98,8 +98,10 @@
             this.Controls.Add(this.labelProductName);
             this.Name = "AddProductForm";
             this.Text = "Ürün Ekle";
+            this.Load += new System.EventHandler(this.AddProductForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

@@ -47,6 +47,7 @@
             this.buttonEmployees.TabIndex = 1;
             this.buttonEmployees.Text = "Çalışanlar";
             this.buttonEmployees.UseVisualStyleBackColor = true;
+            this.buttonEmployees.Click += new System.EventHandler(this.ButtonEmployees_Click);
             // 
             // buttonProducts
             // 
@@ -57,6 +58,7 @@
             this.buttonProducts.TabIndex = 2;
             this.buttonProducts.Text = "Ürünler";
             this.buttonProducts.UseVisualStyleBackColor = true;
+            this.buttonProducts.Click += new System.EventHandler(this.ButtonProducts_Click);
             // 
             // buttonReports
             // 
@@ -67,6 +69,7 @@
             this.buttonReports.TabIndex = 3;
             this.buttonReports.Text = "Raporlar";
             this.buttonReports.UseVisualStyleBackColor = true;
+            this.buttonReports.Click += new System.EventHandler(this.ButtonReports_Click);
             // 
             // buttonLogout
             // 

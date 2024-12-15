@@ -38,6 +38,8 @@
             this.labelPassword = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.buttonAddAdmin = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelFirstName
@@ -45,7 +47,7 @@
             this.labelFirstName.AutoSize = true;
             this.labelFirstName.Location = new System.Drawing.Point(20, 20);
             this.labelFirstName.Name = "labelFirstName";
-            this.labelFirstName.Size = new System.Drawing.Size(35, 17);
+            this.labelFirstName.Size = new System.Drawing.Size(30, 16);
             this.labelFirstName.TabIndex = 0;
             this.labelFirstName.Text = "Adı:";
             // 
@@ -61,7 +63,7 @@
             this.labelLastName.AutoSize = true;
             this.labelLastName.Location = new System.Drawing.Point(20, 60);
             this.labelLastName.Name = "labelLastName";
-            this.labelLastName.Size = new System.Drawing.Size(52, 17);
+            this.labelLastName.Size = new System.Drawing.Size(53, 16);
             this.labelLastName.TabIndex = 2;
             this.labelLastName.Text = "Soyadı:";
             // 
@@ -77,7 +79,7 @@
             this.labelEmail.AutoSize = true;
             this.labelEmail.Location = new System.Drawing.Point(20, 100);
             this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(46, 17);
+            this.labelEmail.Size = new System.Drawing.Size(48, 16);
             this.labelEmail.TabIndex = 4;
             this.labelEmail.Text = "E-mail:";
             // 
@@ -91,9 +93,9 @@
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Location = new System.Drawing.Point(20, 140);
+            this.labelPassword.Location = new System.Drawing.Point(20, 183);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(42, 17);
+            this.labelPassword.Size = new System.Drawing.Size(37, 16);
             this.labelPassword.TabIndex = 6;
             this.labelPassword.Text = "Şifre:";
             // 
@@ -107,17 +109,37 @@
             // 
             // buttonAddAdmin
             // 
-            this.buttonAddAdmin.Location = new System.Drawing.Point(120, 180);
+            this.buttonAddAdmin.Location = new System.Drawing.Point(120, 215);
             this.buttonAddAdmin.Name = "buttonAddAdmin";
             this.buttonAddAdmin.Size = new System.Drawing.Size(200, 30);
             this.buttonAddAdmin.TabIndex = 8;
             this.buttonAddAdmin.Text = "Ekle";
             this.buttonAddAdmin.UseVisualStyleBackColor = true;
-          //  this.buttonAddAdmin.Click += new System.EventHandler(this.ButtonAddAdmin_Click);
+            this.buttonAddAdmin.Click += new System.EventHandler(this.buttonAddAdmin_Click);
             // 
-            // AddAdminForm
+            // textBox1
             // 
-            this.ClientSize = new System.Drawing.Size(350, 230);
+            this.textBox1.Location = new System.Drawing.Point(120, 177);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.PasswordChar = '*';
+            this.textBox1.Size = new System.Drawing.Size(200, 22);
+            this.textBox1.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 146);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 16);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Telefon:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // AddEmployeeForm
+            // 
+            this.ClientSize = new System.Drawing.Size(344, 266);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonAddAdmin);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.labelPassword);
@@ -127,8 +149,9 @@
             this.Controls.Add(this.labelLastName);
             this.Controls.Add(this.textBoxFirstName);
             this.Controls.Add(this.labelFirstName);
-            this.Name = "AddAdminForm";
+            this.Name = "AddEmployeeForm";
             this.Text = "Yönetici Ekle";
+            this.Load += new System.EventHandler(this.AddEmployeeForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,5 +168,7 @@
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Button buttonAddAdmin;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -14,15 +14,14 @@ namespace Online_Restaurant_Order_Tracking_System.Repositories
             using (var connection = DatabaseHelper.GetConnection())
             {
                 string query = @"
-                INSERT INTO users (first_name, last_name, email, phone, address, password, role)
-                VALUES (@FirstName, @LastName, @Email, @Phone, @Address, @Password, @Role)";
+                INSERT INTO users (first_name, last_name, email, phone,  password, role)
+                VALUES (@FirstName, @LastName, @Email, @Phone,  @Password, @Role)";
                 var command = new MySqlCommand(query, connection);
 
                 command.Parameters.AddWithValue("@FirstName", user.FirstName);
                 command.Parameters.AddWithValue("@LastName", user.LastName);
                 command.Parameters.AddWithValue("@Email", user.Email);
                 command.Parameters.AddWithValue("@Phone", user.Phone);
-                command.Parameters.AddWithValue("@Address", user.Address);
                 command.Parameters.AddWithValue("@Password", user.Password);
                 command.Parameters.AddWithValue("@Role", user.Role);
 
@@ -52,7 +51,6 @@ namespace Online_Restaurant_Order_Tracking_System.Repositories
                             LastName = reader.GetString("last_name"),
                             Email = reader.GetString("email"),
                             Phone = reader.GetString("phone"),
-                            Address = reader.GetString("address"),
                             Password = reader.GetString("password"),
                             Role = reader.GetString("role")
                         });
@@ -83,7 +81,6 @@ namespace Online_Restaurant_Order_Tracking_System.Repositories
                             LastName = reader.GetString("last_name"),
                             Email = reader.GetString("email"),
                             Phone = reader.GetString("phone"),
-                            Address = reader.GetString("address"),
                             Password = reader.GetString("password"),
                             Role = reader.GetString("role")
                         };
@@ -114,7 +111,6 @@ namespace Online_Restaurant_Order_Tracking_System.Repositories
                             LastName = reader.GetString("last_name"),
                             Email = reader.GetString("email"),
                             Phone = reader.GetString("phone"),
-                            Address = reader.GetString("address"),
                             Password = reader.GetString("password"),
                             Role = reader.GetString("role")
                         };
@@ -132,7 +128,7 @@ namespace Online_Restaurant_Order_Tracking_System.Repositories
                 string query = @"
                 UPDATE users
                 SET first_name = @FirstName, last_name = @LastName, email = @Email, 
-                    phone = @Phone, address = @Address, password = @Password, role = @Role
+                    phone = @Phone,  password = @Password, role = @Role
                 WHERE id = @UserId";
                 var command = new MySqlCommand(query, connection);
 
@@ -140,7 +136,6 @@ namespace Online_Restaurant_Order_Tracking_System.Repositories
                 command.Parameters.AddWithValue("@LastName", user.LastName);
                 command.Parameters.AddWithValue("@Email", user.Email);
                 command.Parameters.AddWithValue("@Phone", user.Phone);
-                command.Parameters.AddWithValue("@Address", user.Address);
                 command.Parameters.AddWithValue("@Password", user.Password);
                 command.Parameters.AddWithValue("@Role", user.Role);
                 command.Parameters.AddWithValue("@UserId", user.UserId);
@@ -159,7 +154,6 @@ namespace Online_Restaurant_Order_Tracking_System.Repositories
                 var command = new MySqlCommand(query, connection);
                 command.Parameters.AddWithValue("@UserId", userId);
 
-                connection.Open();
                 command.ExecuteNonQuery();
             }
         }

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Online_Restaurant_Order_Tracking_System.Forms
 {
-    public partial class menu : BaseForm
+    public partial class menu : Form
     {
         private Panel popupMenu;
         private readonly CategoryRepository _categoryRepository;
@@ -55,7 +55,7 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
         }
         private void OpenProfileForm()
         {
-            Form1 profileForm = new Form1(); // Profil sayfasını aç
+            UserDashboardForm profileForm = new UserDashboardForm(SessionManager.UserId); // Profil sayfasını aç
             profileForm.Show();
         }
 
@@ -81,7 +81,7 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             // Menü seçenekleri
             Button btnProfile = new Button
             {
-                Text = SessionManager.UserId.ToString(),
+                Text = "Bilgilerim",
                 Size = new Size(180, 30),
                 Location = new Point(10, 10),
                 BackColor = Color.White
@@ -205,16 +205,13 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
                     CategoryId = categoryId
                 };
 
-                categoryForm.ShowDialog();
+                categoryForm.Show();
+                this.Hide();
             }
         }
 
         // Kategori formunu aç
-        private void OpenCategoryForm(int categoryId)
-        {
-            // Örnek olarak boş bir form açılıyor
-            MessageBox.Show($"Kategori ID: {categoryId} seçildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+    
 
         private void buttonAllProducts_Click(object sender, EventArgs e)
         {
@@ -224,6 +221,11 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
                 bos_dosya dosya = new bos_dosya();
                 dosya.Show();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

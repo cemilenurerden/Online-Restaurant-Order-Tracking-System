@@ -2,26 +2,51 @@
 using System.Windows.Forms;
 using Online_Restaurant_Order_Tracking_System.Repositories;
 using Online_Restaurant_Order_Tracking_System.Models;
+using System.Collections.Generic;
 
 namespace Online_Restaurant_Order_Tracking_System.Forms
 {
     public partial class EditProductForm : Form
     {
-        private readonly int _productId;
+        private readonly int ProductId;
         private readonly ProductRepository _productRepository;
 
         public EditProductForm(int productId)
         {
             InitializeComponent();
-            _productId = productId;
+            ProductId = productId;
             _productRepository = new ProductRepository();
+            LoadCategories();
+            LoadProductDetails();
+        }
+        private void LoadCategories()
+        {
+            var categoryRepo = new CategoryRepository();
+            var categories = categoryRepo.GetAllCategories();
+
+            comboBoxCategory.DataSource = categories;
+            comboBoxCategory.DisplayMember = "Name";
+            comboBoxCategory.ValueMember = "Id";
         }
 
-        private void EditProductForm_Load(object sender, EventArgs e)
+        private void LoadProductDetails()
+        {
+            Product product = _productRepository.GetProductById(ProductId);
+
+            if (product != null)
+            {
+                textBoxProductName.Text = product.Name;
+                textBoxPrice.Text = product.Price.ToString();
+                textBox1.Text = product.description;
+                comboBoxCategory.SelectedValue = product.CategoryId;
+            }
+        }
+
+            private void EditProductForm_Load(object sender, EventArgs e)
         {
             try
             {
-                var product = _productRepository.GetProductById(_productId);
+                var product = _productRepository.GetProductById(ProductId);
                
                
             }
@@ -43,7 +68,7 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             {
                 var product = new Product
                 {
-                    Id = _productId,
+                    Id = ProductId,
                     Name = textBoxProductName.Text,
                     Price = decimal.Parse(textBoxPrice.Text),
                     ImagePath = "ldldl"

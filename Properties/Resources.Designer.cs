@@ -113,6 +113,16 @@ namespace Online_Restaurant_Order_Tracking_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap arrow {
+            get {
+                object obj = ResourceManager.GetObject("arrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Bolonez__Soslu_Makarna_Tarifi__Nasil_Yapilir_ {
             get {
                 object obj = ResourceManager.GetObject("Bolonez  Soslu Makarna Tarifi, Nasil Yapilir_", resourceCulture);

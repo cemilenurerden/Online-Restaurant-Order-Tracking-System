@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Online_Restaurant_Order_Tracking_System.Models;
+using Online_Restaurant_Order_Tracking_System.Repositories;
 using ProjeAdi.Repositories;
 
 namespace Online_Restaurant_Order_Tracking_System.Forms
@@ -24,81 +28,131 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
 
         private void LoadUserInfo()
         {
-            using (var connection = DatabaseHelper.GetConnection())
+            try
             {
-                try
-                {
-                    string query = "SELECT * FROM kullanicilar WHERE id = @UserId";
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-                    cmd.Parameters.AddWithValue("@UserId", userId);
-                    connection.Open();
-                    MySqlDataReader reader = cmd.ExecuteReader();
+                UserRepository userRepository = new UserRepository();
+                User user = userRepository.GetUserById(userId);
 
-                    if (reader.Read())
-                    {
-                        textBoxFirstName.Text = reader.GetString("ad");
-                        textBoxLastName.Text = reader.GetString("soyad");
-                        textBoxEmail.Text = reader.GetString("email");
-                        textBoxPhone.Text = reader.IsDBNull(reader.GetOrdinal("telefon")) ? "" : reader.GetString("telefon");
-                        textBoxAddress.Text = reader.IsDBNull(reader.GetOrdinal("adres")) ? "" : reader.GetString("adres");
-                    }
-                }
-                catch (Exception ex)
+                if (user != null)
                 {
-                    MessageBox.Show($"Bilgiler yüklenirken hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBoxFirstName.Text = user.FirstName;
+                    textBoxLastName.Text = user.LastName;
+                    textBoxEmail.Text = user.Email;
+                    textBoxPhone.Text = user.Phone;
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Bilgiler yüklenirken hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void LoadUserOrders()
         {
-            using (var connection = DatabaseHelper.GetConnection())
+            try
             {
-                try
-                {
-                    string query = @"
-                        SELECT id AS 'Sipariş ID', order_date AS 'Tarih', status AS 'Durum', total_price AS 'Toplam Tutar'
-                        FROM orders WHERE user_id = @UserId";
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
-                    adapter.SelectCommand.Parameters.AddWithValue("@UserId", userId);
+                OrderRepository orderRepository = new OrderRepository();
+                var orders = orderRepository.GetAllOrders();
 
-                    DataTable orderTable = new DataTable();
-                    adapter.Fill(orderTable);
-                    dataGridViewOrders.DataSource = orderTable;
-                }
-                catch (Exception ex)
+                // Kullanıcıya ait siparişleri filtrele
+                var userOrders = orders.Where(o => o.userId == userId).ToList();
+
+                // flowLayoutPanel'i temizle
+                flowLayoutPanel1.Controls.Clear();
+                flowLayoutPanel1.AutoScroll = true;
+
+                foreach (var order in userOrders)
                 {
-                    MessageBox.Show($"Siparişler yüklenirken hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Sipariş kutusu için panel oluştur
+                    Panel orderPanel = new Panel
+                    {
+                        Width = 350,
+                        Height = 150,
+                        Margin = new Padding(10),
+                        BorderStyle = BorderStyle.FixedSingle,
+                        BackColor = Color.WhiteSmoke
+                    };
+
+                    // Sipariş tarihini gösteren label
+                    Label labelDate = new Label
+                    {
+                        Text = $"Tarih: {order.OrderDate:dd/MM/yyyy}",
+                        AutoSize = true,
+                        Font = new Font("Arial", 10, FontStyle.Regular),
+                        Location = new Point(10, 10)
+                    };
+
+                    // Sipariş adresi
+                    Label labelAddress = new Label
+                    {
+                        Text = $"Adres: {order.address}",
+                        AutoSize = true,
+                        Font = new Font("Arial", 10, FontStyle.Regular),
+                        Location = new Point(10, 35)
+                    };
+
+                    // Ödeme yöntemi
+                    Label labelPayment = new Label
+                    {
+                        Text = $"Ödeme: {order.paymentMethod}",
+                        AutoSize = true,
+                        Font = new Font("Arial", 10, FontStyle.Regular),
+                        Location = new Point(10, 60)
+                    };
+
+                    // Sipariş durumu
+                    Label labelStatus = new Label
+                    {
+                        Text = $"Durum: {order.status}",
+                        AutoSize = true,
+                        Font = new Font("Arial", 10, FontStyle.Bold),
+                        Location = new Point(10, 85),
+                        ForeColor = Color.DarkOrange // Hazırlanıyor durumuna vurgu yapalım
+                    };
+
+                    // Panele ekle
+                    orderPanel.Controls.Add(labelDate);
+                    orderPanel.Controls.Add(labelAddress);
+                    orderPanel.Controls.Add(labelPayment);
+                    orderPanel.Controls.Add(labelStatus);
+
+                    // FlowLayoutPanel'e ekle
+                    flowLayoutPanel1.Controls.Add(orderPanel);
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Siparişler yüklenirken hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void ButtonUpdateInfo_Click(object sender, EventArgs e)
         {
-            using (var connection = DatabaseHelper.GetConnection())
+            try
             {
-                try
+                User user = new User
                 {
-                    string query = @"
-                        UPDATE kullanicilar SET ad = @FirstName, soyad = @LastName, email = @Email, 
-                        telefon = @Phone, adres = @Address WHERE id = @UserId";
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-                    cmd.Parameters.AddWithValue("@FirstName", textBoxFirstName.Text);
-                    cmd.Parameters.AddWithValue("@LastName", textBoxLastName.Text);
-                    cmd.Parameters.AddWithValue("@Email", textBoxEmail.Text);
-                    cmd.Parameters.AddWithValue("@Phone", textBoxPhone.Text);
-                    cmd.Parameters.AddWithValue("@Address", textBoxAddress.Text);
-                    cmd.Parameters.AddWithValue("@UserId", userId);
+                    UserId = userId,
+                    FirstName = textBoxFirstName.Text,
+                    LastName = textBoxLastName.Text,
+                    Email = textBoxEmail.Text,
+                    Phone = textBoxPhone.Text,
+                    Password = "YourPasswordHashOrEmpty", // Şifreyi burada alabilir veya değiştirmeden bırakabilirsiniz
+                    Role = "user" // Rol bilgisi sabit bırakılabilir
+                };
 
-                    connection.Open();
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Bilgileriniz güncellendi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Bilgiler güncellenirken hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                UserRepository userRepository = new UserRepository();
+                userRepository.UpdateUser(user);
+
+                MessageBox.Show("Bilgileriniz güncellendi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Bilgiler güncellenirken hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }

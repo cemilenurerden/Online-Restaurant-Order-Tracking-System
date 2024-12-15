@@ -10,12 +10,12 @@ namespace Online_Restaurant_Order_Tracking_System.Models
         public int userId { get; set; }
         public int ProductId { get; set; }
         public int quantity { get; set; }
-        public int unitPrice { get; set; }
-        public int totalPrice { get; set; }
+        public decimal unitPrice { get; set; }
+        public decimal totalPrice { get; set; }
         public DateTime OrderDate { get; set; }
-        public OrderStatus status { get; set; }
+        public String status { get; set; }
         public string address { get; set; }
-        public PaymentMethod paymentMethod { get; set; }
+        public String paymentMethod { get; set; }
     }
 
     public enum OrderStatus
