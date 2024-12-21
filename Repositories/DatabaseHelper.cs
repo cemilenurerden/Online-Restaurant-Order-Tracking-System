@@ -1,22 +1,26 @@
 ﻿using System;
 using System.Configuration;
-using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
-
 
 namespace ProjeAdi.Repositories
 {
     public static class DatabaseHelper
     {
-        // MySQL bağlantı dizesi
+        // Connection String
         private static readonly string ConnectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
 
-        // Bağlantıyı açma ve döndürmexx
         public static MySqlConnection GetConnection()
         {
             try
             {
                 var connection = new MySqlConnection(ConnectionString);
+
+                // Bağlantının durumunu kontrol et
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    return connection; // Zaten açık bağlantıyı döndür
+                }
+
                 connection.Open();
                 return connection;
             }
