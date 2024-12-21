@@ -166,5 +166,10 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             form.Show();
             this.Hide();
         }
+
+        private void flowLayoutPanelProducts_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

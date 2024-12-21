@@ -109,12 +109,13 @@
             // 
             // buttonAddAdmin
             // 
+            this.buttonAddAdmin.BackColor = System.Drawing.Color.Brown;
             this.buttonAddAdmin.Location = new System.Drawing.Point(120, 215);
             this.buttonAddAdmin.Name = "buttonAddAdmin";
             this.buttonAddAdmin.Size = new System.Drawing.Size(200, 30);
             this.buttonAddAdmin.TabIndex = 8;
             this.buttonAddAdmin.Text = "Ekle";
-            this.buttonAddAdmin.UseVisualStyleBackColor = true;
+            this.buttonAddAdmin.UseVisualStyleBackColor = false;
             this.buttonAddAdmin.Click += new System.EventHandler(this.buttonAddAdmin_Click);
             // 
             // textBox1
@@ -137,6 +138,7 @@
             // 
             // AddEmployeeForm
             // 
+            this.BackColor = System.Drawing.Color.DarkKhaki;
             this.ClientSize = new System.Drawing.Size(344, 266);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);

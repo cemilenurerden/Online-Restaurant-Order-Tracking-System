@@ -154,5 +154,9 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             }
         }
 
+        private void tabPageMyInfo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

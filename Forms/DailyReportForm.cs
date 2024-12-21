@@ -78,5 +78,10 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
                 y += 20;
             }
         }
+
+        private void dataGridViewDailyOrders_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

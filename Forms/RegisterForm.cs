@@ -32,6 +32,15 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
                 return;
             }
 
+
+            if (!IsValidPassword(password))
+            {
+                MessageBox.Show("Parola en az 8 karakter uzunluğunda olmalı ve bir büyük harf, bir küçük harf ile bir sayı içermelidir.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+
             if (!IsValidEmail(email))
             {
                 MessageBox.Show("Geçersiz email formatı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -90,6 +99,27 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             {
                 return false;
             }
+        }
+
+        //şifre kontrolü
+        private bool IsValidPassword(string password)
+        {
+            // Parola uzunluğu, büyük harf, küçük harf ve rakam kontrolü
+            if (password.Length < 8)
+                return false;
+
+            bool hasUpperChar = false;
+            bool hasLowerChar = false;
+            bool hasDigit = false;
+
+            foreach (char c in password)
+            {
+                if (char.IsUpper(c)) hasUpperChar = true;
+                if (char.IsLower(c)) hasLowerChar = true;
+                if (char.IsDigit(c)) hasDigit = true;
+            }
+
+            return hasUpperChar && hasLowerChar && hasDigit;
         }
     }
 }

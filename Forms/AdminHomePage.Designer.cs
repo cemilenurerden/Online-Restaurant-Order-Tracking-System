@@ -30,7 +30,7 @@
             // 
             // labelWelcome
             // 
-            this.labelWelcome.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelWelcome.Font = new System.Drawing.Font("Microsoft JhengHei UI", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelWelcome.Location = new System.Drawing.Point(100, 20);
             this.labelWelcome.Name = "labelWelcome";
             this.labelWelcome.Size = new System.Drawing.Size(600, 40);
@@ -40,49 +40,55 @@
             // 
             // buttonEmployees
             // 
-            this.buttonEmployees.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.buttonEmployees.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.buttonEmployees.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEmployees.Location = new System.Drawing.Point(100, 100);
             this.buttonEmployees.Name = "buttonEmployees";
             this.buttonEmployees.Size = new System.Drawing.Size(200, 50);
             this.buttonEmployees.TabIndex = 1;
             this.buttonEmployees.Text = "Çalışanlar";
-            this.buttonEmployees.UseVisualStyleBackColor = true;
+            this.buttonEmployees.UseVisualStyleBackColor = false;
             this.buttonEmployees.Click += new System.EventHandler(this.ButtonEmployees_Click);
             // 
             // buttonProducts
             // 
-            this.buttonProducts.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.buttonProducts.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.buttonProducts.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonProducts.Location = new System.Drawing.Point(100, 170);
             this.buttonProducts.Name = "buttonProducts";
             this.buttonProducts.Size = new System.Drawing.Size(200, 50);
             this.buttonProducts.TabIndex = 2;
             this.buttonProducts.Text = "Ürünler";
-            this.buttonProducts.UseVisualStyleBackColor = true;
+            this.buttonProducts.UseVisualStyleBackColor = false;
             this.buttonProducts.Click += new System.EventHandler(this.ButtonProducts_Click);
             // 
             // buttonReports
             // 
-            this.buttonReports.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.buttonReports.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.buttonReports.Font = new System.Drawing.Font("Microsoft JhengHei UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonReports.Location = new System.Drawing.Point(100, 240);
             this.buttonReports.Name = "buttonReports";
             this.buttonReports.Size = new System.Drawing.Size(200, 50);
             this.buttonReports.TabIndex = 3;
             this.buttonReports.Text = "Raporlar";
-            this.buttonReports.UseVisualStyleBackColor = true;
+            this.buttonReports.UseVisualStyleBackColor = false;
             this.buttonReports.Click += new System.EventHandler(this.ButtonReports_Click);
             // 
             // buttonLogout
             // 
-            this.buttonLogout.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.buttonLogout.Location = new System.Drawing.Point(600, 300);
+            this.buttonLogout.BackColor = System.Drawing.Color.Brown;
+            this.buttonLogout.Font = new System.Drawing.Font("Arial Black", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.buttonLogout.Location = new System.Drawing.Point(600, 288);
             this.buttonLogout.Name = "buttonLogout";
-            this.buttonLogout.Size = new System.Drawing.Size(120, 40);
+            this.buttonLogout.Size = new System.Drawing.Size(120, 52);
             this.buttonLogout.TabIndex = 4;
             this.buttonLogout.Text = "Çıkış Yap";
-            this.buttonLogout.UseVisualStyleBackColor = true;
+            this.buttonLogout.UseVisualStyleBackColor = false;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click_1);
             // 
             // AdminHomePage
             // 
+            this.BackColor = System.Drawing.Color.DarkKhaki;
             this.ClientSize = new System.Drawing.Size(800, 400);
             this.Controls.Add(this.buttonLogout);
             this.Controls.Add(this.buttonReports);

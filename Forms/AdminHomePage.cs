@@ -44,6 +44,9 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
 
         }
 
-       
+        private void buttonLogout_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -58,15 +58,19 @@
             // 
             // generateReportButton
             // 
+            this.generateReportButton.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.generateReportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.generateReportButton.Location = new System.Drawing.Point(640, 16);
             this.generateReportButton.Name = "generateReportButton";
             this.generateReportButton.Size = new System.Drawing.Size(100, 30);
             this.generateReportButton.TabIndex = 3;
             this.generateReportButton.Text = "Rapor Al";
-            this.generateReportButton.UseVisualStyleBackColor = true;
+            this.generateReportButton.UseVisualStyleBackColor = false;
+            
             // 
             // reportDataGridView
             // 
+            this.reportDataGridView.BackgroundColor = System.Drawing.Color.DarkKhaki;
             this.reportDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.reportDataGridView.Location = new System.Drawing.Point(30, 70);
             this.reportDataGridView.Name = "reportDataGridView";
@@ -77,15 +81,19 @@
             // 
             // exportButton
             // 
-            this.exportButton.Location = new System.Drawing.Point(640, 380);
+            this.exportButton.BackColor = System.Drawing.Color.Brown;
+            this.exportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.exportButton.Location = new System.Drawing.Point(623, 380);
             this.exportButton.Name = "exportButton";
-            this.exportButton.Size = new System.Drawing.Size(100, 30);
+            this.exportButton.Size = new System.Drawing.Size(117, 49);
             this.exportButton.TabIndex = 5;
             this.exportButton.Text = "PDF İndir";
-            this.exportButton.UseVisualStyleBackColor = true;
+            this.exportButton.UseVisualStyleBackColor = false;
+            this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
             // 
             // ReportForm
             // 
+            this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(784, 441);
             this.Controls.Add(this.exportButton);
             this.Controls.Add(this.reportDataGridView);

@@ -39,6 +39,7 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             // flowLayoutPanelCart
             // 
             this.flowLayoutPanelCart.AutoScroll = true;
+            this.flowLayoutPanelCart.BackColor = System.Drawing.Color.DarkKhaki;
             this.flowLayoutPanelCart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanelCart.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanelCart.Location = new System.Drawing.Point(12, 50);
@@ -46,6 +47,7 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             this.flowLayoutPanelCart.Size = new System.Drawing.Size(760, 283);
             this.flowLayoutPanelCart.TabIndex = 0;
             this.flowLayoutPanelCart.WrapContents = false;
+            this.flowLayoutPanelCart.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelCart_Paint);
             // 
             // labelTotalPrice
             // 
@@ -60,10 +62,10 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             // buttonCheckout
             // 
             this.buttonCheckout.BackColor = System.Drawing.Color.Orange;
-            this.buttonCheckout.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.buttonCheckout.Location = new System.Drawing.Point(662, 570);
+            this.buttonCheckout.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCheckout.Location = new System.Drawing.Point(635, 560);
             this.buttonCheckout.Name = "buttonCheckout";
-            this.buttonCheckout.Size = new System.Drawing.Size(110, 40);
+            this.buttonCheckout.Size = new System.Drawing.Size(137, 50);
             this.buttonCheckout.TabIndex = 4;
             this.buttonCheckout.Text = "Ödeme Yap";
             this.buttonCheckout.UseVisualStyleBackColor = false;
@@ -122,7 +124,7 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             this.labelCardNumber.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.labelCardNumber.Location = new System.Drawing.Point(10, 140);
             this.labelCardNumber.Name = "labelCardNumber";
-            this.labelCardNumber.Size = new System.Drawing.Size(141, 21);
+            this.labelCardNumber.Size = new System.Drawing.Size(128, 19);
             this.labelCardNumber.TabIndex = 5;
             this.labelCardNumber.Text = "Kart Numarası:";
             this.labelCardNumber.Visible = false;
@@ -133,7 +135,7 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             this.labelCardName.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.labelCardName.Location = new System.Drawing.Point(10, 110);
             this.labelCardName.Name = "labelCardName";
-            this.labelCardName.Size = new System.Drawing.Size(95, 21);
+            this.labelCardName.Size = new System.Drawing.Size(85, 19);
             this.labelCardName.TabIndex = 4;
             this.labelCardName.Text = "Kart İsmi:";
             this.labelCardName.Visible = false;
@@ -152,7 +154,7 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             this.labelAddress.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.labelAddress.Location = new System.Drawing.Point(10, 20);
             this.labelAddress.Name = "labelAddress";
-            this.labelAddress.Size = new System.Drawing.Size(69, 21);
+            this.labelAddress.Size = new System.Drawing.Size(61, 19);
             this.labelAddress.TabIndex = 2;
             this.labelAddress.Text = "Adres:";
             // 
@@ -175,7 +177,7 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             this.labelPaymentMethod.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.labelPaymentMethod.Location = new System.Drawing.Point(10, 80);
             this.labelPaymentMethod.Name = "labelPaymentMethod";
-            this.labelPaymentMethod.Size = new System.Drawing.Size(160, 21);
+            this.labelPaymentMethod.Size = new System.Drawing.Size(138, 19);
             this.labelPaymentMethod.TabIndex = 0;
             this.labelPaymentMethod.Text = "Ödeme Yöntemi:";
             // 
@@ -192,6 +194,7 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(800, 622);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonCheckout);

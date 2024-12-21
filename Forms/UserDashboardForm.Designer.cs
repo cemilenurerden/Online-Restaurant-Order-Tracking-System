@@ -46,6 +46,7 @@
             // 
             // tabPageMyInfo
             // 
+            this.tabPageMyInfo.BackColor = System.Drawing.Color.DarkKhaki;
             this.tabPageMyInfo.Controls.Add(this.buttonUpdateInfo);
             this.tabPageMyInfo.Controls.Add(this.textBoxPhone);
             this.tabPageMyInfo.Controls.Add(this.textBoxEmail);
@@ -61,42 +62,44 @@
             this.tabPageMyInfo.Size = new System.Drawing.Size(792, 421);
             this.tabPageMyInfo.TabIndex = 0;
             this.tabPageMyInfo.Text = "Bilgilerim";
-            this.tabPageMyInfo.UseVisualStyleBackColor = true;
+            this.tabPageMyInfo.Click += new System.EventHandler(this.tabPageMyInfo_Click);
             // 
             // buttonUpdateInfo
             // 
-            this.buttonUpdateInfo.Location = new System.Drawing.Point(150, 246);
+            this.buttonUpdateInfo.BackColor = System.Drawing.Color.Brown;
+            this.buttonUpdateInfo.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.buttonUpdateInfo.Location = new System.Drawing.Point(279, 276);
             this.buttonUpdateInfo.Name = "buttonUpdateInfo";
-            this.buttonUpdateInfo.Size = new System.Drawing.Size(200, 40);
+            this.buttonUpdateInfo.Size = new System.Drawing.Size(231, 51);
             this.buttonUpdateInfo.TabIndex = 10;
             this.buttonUpdateInfo.Text = "Bilgileri Güncelle";
-            this.buttonUpdateInfo.UseVisualStyleBackColor = true;
+            this.buttonUpdateInfo.UseVisualStyleBackColor = false;
             this.buttonUpdateInfo.Click += new System.EventHandler(this.ButtonUpdateInfo_Click);
             // 
             // textBoxPhone
             // 
-            this.textBoxPhone.Location = new System.Drawing.Point(150, 170);
+            this.textBoxPhone.Location = new System.Drawing.Point(295, 195);
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.Size = new System.Drawing.Size(200, 22);
             this.textBoxPhone.TabIndex = 8;
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(150, 120);
+            this.textBoxEmail.Location = new System.Drawing.Point(295, 142);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(300, 22);
+            this.textBoxEmail.Size = new System.Drawing.Size(200, 22);
             this.textBoxEmail.TabIndex = 7;
             // 
             // textBoxLastName
             // 
-            this.textBoxLastName.Location = new System.Drawing.Point(150, 70);
+            this.textBoxLastName.Location = new System.Drawing.Point(295, 92);
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(200, 22);
             this.textBoxLastName.TabIndex = 6;
             // 
             // textBoxFirstName
             // 
-            this.textBoxFirstName.Location = new System.Drawing.Point(150, 20);
+            this.textBoxFirstName.Location = new System.Drawing.Point(295, 42);
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.Size = new System.Drawing.Size(200, 22);
             this.textBoxFirstName.TabIndex = 5;
@@ -104,36 +107,40 @@
             // labelPhone
             // 
             this.labelPhone.AutoSize = true;
-            this.labelPhone.Location = new System.Drawing.Point(50, 170);
+            this.labelPhone.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelPhone.Location = new System.Drawing.Point(174, 195);
             this.labelPhone.Name = "labelPhone";
-            this.labelPhone.Size = new System.Drawing.Size(56, 16);
+            this.labelPhone.Size = new System.Drawing.Size(63, 19);
             this.labelPhone.TabIndex = 3;
             this.labelPhone.Text = "Telefon:";
             // 
             // labelEmail
             // 
             this.labelEmail.AutoSize = true;
-            this.labelEmail.Location = new System.Drawing.Point(50, 120);
+            this.labelEmail.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelEmail.Location = new System.Drawing.Point(174, 142);
             this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(44, 16);
+            this.labelEmail.Size = new System.Drawing.Size(49, 19);
             this.labelEmail.TabIndex = 2;
             this.labelEmail.Text = "Email:";
             // 
             // labelLastName
             // 
             this.labelLastName.AutoSize = true;
-            this.labelLastName.Location = new System.Drawing.Point(50, 70);
+            this.labelLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelLastName.Location = new System.Drawing.Point(175, 92);
             this.labelLastName.Name = "labelLastName";
-            this.labelLastName.Size = new System.Drawing.Size(53, 16);
+            this.labelLastName.Size = new System.Drawing.Size(60, 16);
             this.labelLastName.TabIndex = 1;
             this.labelLastName.Text = "Soyadı:";
             // 
             // labelFirstName
             // 
             this.labelFirstName.AutoSize = true;
-            this.labelFirstName.Location = new System.Drawing.Point(50, 20);
+            this.labelFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelFirstName.Location = new System.Drawing.Point(175, 42);
             this.labelFirstName.Name = "labelFirstName";
-            this.labelFirstName.Size = new System.Drawing.Size(27, 16);
+            this.labelFirstName.Size = new System.Drawing.Size(30, 16);
             this.labelFirstName.TabIndex = 0;
             this.labelFirstName.Text = "Ad:";
             // 

@@ -77,7 +77,7 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
                     adminForm.Show();
                     MessageBox.Show("Admin sayfasına yönlendiriliyorsunuz.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (user.Role == "employee")
+                else if (user.Role == "worker")
                 {
                     EmployeeHomePage employeeForm = new EmployeeHomePage(); // Çalışan sayfası
                     employeeForm.Show();

@@ -145,19 +145,20 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             this.textBoxSearch.ForeColor = System.Drawing.Color.Gray;
             this.textBoxSearch.Location = new System.Drawing.Point(170, 54);
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(234, 31);
+            this.textBoxSearch.Size = new System.Drawing.Size(234, 30);
             this.textBoxSearch.TabIndex = 1;
             this.textBoxSearch.Text = "Ürün ara...";
             this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
             // flowLayoutPanelProducts
             // 
-            this.flowLayoutPanelProducts.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanelProducts.BackColor = System.Drawing.Color.WhiteSmoke;
             this.flowLayoutPanelProducts.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanelProducts.Location = new System.Drawing.Point(0, 179);
             this.flowLayoutPanelProducts.Name = "flowLayoutPanelProducts";
             this.flowLayoutPanelProducts.Size = new System.Drawing.Size(684, 421);
             this.flowLayoutPanelProducts.TabIndex = 4;
+            this.flowLayoutPanelProducts.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelProducts_Paint);
             // 
             // comboBoxCategories
             // 

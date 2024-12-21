@@ -34,22 +34,22 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelMenu.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.panelMenu.Controls.Add(this.flowLayoutPanelCategories);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMenu.Location = new System.Drawing.Point(0, 100);
+            this.panelMenu.Location = new System.Drawing.Point(0, 114);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(684, 500);
+            this.panelMenu.Size = new System.Drawing.Size(684, 486);
             this.panelMenu.TabIndex = 0;
             // 
             // flowLayoutPanelCategories
             // 
             this.flowLayoutPanelCategories.AutoScroll = true;
-            this.flowLayoutPanelCategories.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanelCategories.BackColor = System.Drawing.Color.DarkKhaki;
             this.flowLayoutPanelCategories.Controls.Add(this.buttonAllProducts);
-            this.flowLayoutPanelCategories.Location = new System.Drawing.Point(20, 20);
+            this.flowLayoutPanelCategories.Location = new System.Drawing.Point(20, 17);
             this.flowLayoutPanelCategories.Name = "flowLayoutPanelCategories";
-            this.flowLayoutPanelCategories.Size = new System.Drawing.Size(639, 444);
+            this.flowLayoutPanelCategories.Size = new System.Drawing.Size(639, 447);
             this.flowLayoutPanelCategories.TabIndex = 1;
             // 
             // buttonAllProducts
@@ -69,14 +69,14 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             // 
             // groupBoxHeader
             // 
-            this.groupBoxHeader.BackColor = System.Drawing.Color.Silver;
+            this.groupBoxHeader.BackColor = System.Drawing.Color.Thistle;
             this.groupBoxHeader.Controls.Add(this.button2);
             this.groupBoxHeader.Controls.Add(this.button1);
             this.groupBoxHeader.Controls.Add(this.pictureBoxLogo);
             this.groupBoxHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBoxHeader.Location = new System.Drawing.Point(0, 0);
             this.groupBoxHeader.Name = "groupBoxHeader";
-            this.groupBoxHeader.Size = new System.Drawing.Size(684, 100);
+            this.groupBoxHeader.Size = new System.Drawing.Size(684, 114);
             this.groupBoxHeader.TabIndex = 1;
             this.groupBoxHeader.TabStop = false;
             // 

@@ -78,16 +78,18 @@
             // 
             // buttonAddProduct
             // 
+            this.buttonAddProduct.BackColor = System.Drawing.Color.Brown;
             this.buttonAddProduct.Location = new System.Drawing.Point(120, 140);
             this.buttonAddProduct.Name = "buttonAddProduct";
             this.buttonAddProduct.Size = new System.Drawing.Size(200, 30);
             this.buttonAddProduct.TabIndex = 6;
             this.buttonAddProduct.Text = "Ekle";
-            this.buttonAddProduct.UseVisualStyleBackColor = true;
+            this.buttonAddProduct.UseVisualStyleBackColor = false;
             this.buttonAddProduct.Click += new System.EventHandler(this.buttonAddProduct_Click);
             // 
             // AddProductForm
             // 
+            this.BackColor = System.Drawing.Color.DarkKhaki;
             this.ClientSize = new System.Drawing.Size(350, 200);
             this.Controls.Add(this.buttonAddProduct);
             this.Controls.Add(this.comboBoxCategory);

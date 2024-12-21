@@ -79,22 +79,24 @@
             // 
             // buttonSave
             // 
+            this.buttonSave.BackColor = System.Drawing.Color.Brown;
             this.buttonSave.Location = new System.Drawing.Point(120, 180);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(90, 30);
             this.buttonSave.TabIndex = 8;
             this.buttonSave.Text = "Kaydet";
-            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonCancel
             // 
+            this.buttonCancel.BackColor = System.Drawing.Color.Gray;
             this.buttonCancel.Location = new System.Drawing.Point(230, 180);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(90, 30);
             this.buttonCancel.TabIndex = 9;
             this.buttonCancel.Text = "İptal";
-            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // label1
@@ -115,6 +117,7 @@
             // 
             // EditProductForm
             // 
+            this.BackColor = System.Drawing.Color.DarkKhaki;
             this.ClientSize = new System.Drawing.Size(350, 230);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);

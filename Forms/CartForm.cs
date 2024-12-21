@@ -195,5 +195,10 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             labelCardNumber.Visible = isCardSelected;
             textBoxCardNumber.Visible = isCardSelected;
         }
+
+        private void flowLayoutPanelCart_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

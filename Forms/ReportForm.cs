@@ -71,7 +71,18 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             }
         }
 
-        private void ExportButton_Click(object sender, EventArgs e)
+
+ 
+        /*
+        private void generateReportButton_Click_1(object sender, EventArgs e)
+        {
+            // PDF'e aktarma işlemi
+            MessageBox.Show("Rapor PDF olarak indirildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        */
+
+        private void exportButton_Click(object sender, EventArgs e)
         {
             // PDF'e aktarma işlemi
             MessageBox.Show("Rapor PDF olarak indirildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);

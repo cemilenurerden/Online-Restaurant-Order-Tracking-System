@@ -118,21 +118,29 @@ namespace Online_Restaurant_Order_Tracking_System.Forms
             LoadProducts(searchQuery);
         }
 
-
+        /*
             private void buttonAddProduct_Click(object sender, EventArgs e)
         {
             var addForm = new AddProductForm(); // Yeni ürün ekleme formu
             addForm.ShowDialog();
-            LoadProducts(); // 
+            LoadProducts(); 
         }
-
+        */
         private void buttonEditProduct_Click(object sender, EventArgs e)
         {
-           
+          
+
         }
 
         private void buttonDeleteProduct_Click(object sender, EventArgs e)
         {
+        }
+
+        private void buttonAddProduct_Click_1(object sender, EventArgs e)
+        {
+            var addForm = new AddProductForm(); // Yeni ürün ekleme formu
+            addForm.ShowDialog();
+            LoadProducts();
         }
     }
 }
